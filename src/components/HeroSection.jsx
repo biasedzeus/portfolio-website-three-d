@@ -3,22 +3,16 @@ import { Box, List } from "@mui/joy";
 import { Button, Divider, ListItem, Typography } from "@mui/material";
 import React from "react";
 import GithubLogo from "../assets/GitHub_Logo_White.png";
-import LinkedInLogo from "../assets/LinkedIn.png";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import LinkedInLogo from "../assets/linkedin-white.png";
+import { Stack } from "@mui/system";
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  // backgroundColor: "skyblue",
   width: "fit-content",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
   position: "absolute",
-  // top:'10rem'
-  // [theme.breakpoints.up("sm")]: {
-  //   top: "10rem",
-  // }
 }));
 
 const DevName = styled(Typography)({
@@ -34,16 +28,23 @@ const ResumeButton = styled(Button)({
   color: "white",
   backgroundColor: "rgba(255,255,255,0.2)",
   marginTop: "1rem",
-  padding: "1rem",
-  borderRadius: "1rem",
+  padding: "1rem 2rem 1rem 2rem",
+  borderRadius: "2.5rem",
   boxShadow: "1px 2px 10px rgba(24, 24, 24, 0.1)",
+  ":hover": {
+    fill: "ButtonHighlight",
+    backgroundColor: "white",
+    color: "black",
+    boxShadow: "1px 2px 10px rgba(10, 10, 10, 0.97) ",
+    transition: " 200ms ease-in-out",
+  },
 });
 
-const LogoContainer = styled(Box)({
-  display: "flex",
+const StyledDivider = styled(Divider)({
+  color: "white",
+  backgroundColor: "rgba(255,255,255,0.2)",
+  width: "0.12rem",
 });
-
-
 
 const HeroSection = () => {
   return (
@@ -62,7 +63,7 @@ const HeroSection = () => {
         variant="h1"
         sx={{
           fontSize: {
-            xs: "4rem",
+            xs: "3rem",
             sm: "4rem",
             md: "8rem",
             lg: "8rem",
@@ -88,7 +89,13 @@ const HeroSection = () => {
       >
         Web Devloper
       </DevTitle>
-      <ResumeButton
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        spacing={{ xs: 1, sm: 1, md: 2, lg: 4 }}
+      >
+        <ResumeButton
           sx={{
             fontSize: {
               xs: "1rem",
@@ -103,18 +110,19 @@ const HeroSection = () => {
           Resume
         </ResumeButton>
 
-      <Divider orientation="vertical" flexItem />
-      <LogoContainer>
-        
-        {/* <StyledList>
-          <StyledListItem>
-            <img src={GithubLogo} alt="github_logo" />
-          </StyledListItem>
-          <StyledListItem>
-            <img src={LinkedInLogo} alt="github_logo" />
-          </StyledListItem>
-        </StyledList> */}
-      </LogoContainer>
+        <StyledDivider
+          light={true}
+          variant="inset"
+          orientation="vertical"
+          flexItem
+        />
+        <img
+          style={{ height: "48px", width: "25%" }}
+          src={GithubLogo}
+          alt="GithubLogo"
+        />
+        <img src={LinkedInLogo} alt="GithubLogo" />
+      </Stack>
     </StyledBox>
   );
 };
