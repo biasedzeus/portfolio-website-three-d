@@ -1,0 +1,134 @@
+#root {
+  height: 100%;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  // min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.resume {
+  background-color: yellow;
+  max-width: 800px;
+  min-height: fit-content;
+  padding-bottom: 1rem;
+  margin: 0 auto;
+  background-color: rgba($color: #ffff, $alpha: 0.2);
+  border-radius: 1rem;
+  // height: 80%;
+
+  nav {
+    display: flex;
+    gap: 8rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    // justify-content: space-between;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      list-style: none;
+    }
+  }
+}
+
+.section {
+  background-color: white;
+  margin-top: 1rem;
+  color: black;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 1.4rem;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  height: 435px;
+  text-overflow: ellipsis;
+}
+
+.title {
+  text-align: center;
+}
+.projects-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.more-info-btn {
+  width: max-content;
+  align-self: center;
+}
+.project-tab-btn {
+  color: black;
+  background-color: white;
+  border: none;
+  align-self: center;
+  justify-self: center;
+}
+
+.active-btn {
+  padding-left: 1rem;
+  border-left: 0.2rem black solid;
+}
+
+// .hero-section {
+//   // padding: 1rem;
+// }
+
+.name-holder {
+  font-size: 8rem;
+  padding: 10px;
+  width: max-content;
+  margin-bottom: 2rem;
+
+  padding-top: 20px;
+  font-family: "Impact", sans-serif;
+  text-align: center;
+  mix-blend-mode: multiply;
+  user-select: disable;
+  cursor: grab;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.resume-link-btn {
+  margin-top: 10px;
+  font-size: 2rem;
+  background-color: rgba($color: #ffff, $alpha: 0.2);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+.dev-name::first-letter {
+  color: blue;
+  font-weight: 900;
+}
