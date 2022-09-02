@@ -1,21 +1,39 @@
-import * as React from 'react';
-import Box from '@mui/joy/Box';
-import List from '@mui/joy/List';
-import ListDivider from '@mui/joy/ListDivider';
-import ListItem from '@mui/joy/ListItem';
-import ListItemButton from '@mui/joy/ListItemButton';
-import Home from '@mui/icons-material/Home';
-import Person from '@mui/icons-material/Person';
+import * as React from "react";
+import Box from "@mui/joy/Box";
+import List from "@mui/joy/List";
+import ListDivider from "@mui/joy/ListDivider";
+import ListItem from "@mui/joy/ListItem";
+import ListItemButton from "@mui/joy/ListItemButton";
+import Home from "@mui/icons-material/Home";
+import styled from "@emotion/styled";
+import { useInView } from "react-intersection-observer";
 
-export default function Header() {
+
+const BoxContainer = styled(Box)((theme) =>({
+  flexGrow: 1,
+  position: "sticky",
+  top: '3rem',
+  borderRadius:'1.5rem',
+  zIndex:'99'
+
+  // backgroundColor:`rgba(255,255,255,0.2)`,
+}));
+
+export default function Header({inView}) {
+  
+
+
+
   return (
-    <Box component="nav" aria-label="My site" sx={{ flexGrow: 1 }}>
+    <BoxContainer component="nav" aria-label="My site" sx={{
+      backgroundColor:inView ? 'rgba(255,255,255,0.2)' : 'black'
+    }}>
       <List role="menubar" row>
         <ListItem role="none">
           <ListItemButton
             role="menuitem"
             component="a"
-            href="#horizontal-list"
+            href="#"
             aria-label="Home"
           >
             <Home />
@@ -33,17 +51,17 @@ export default function Header() {
             Blog
           </ListItemButton>
         </ListItem>
-        <ListItem role="none" sx={{ marginInlineStart: 'auto' }}>
+        <ListItem role="none" sx={{ marginInlineStart: "auto" }}>
           <ListItemButton
             role="menuitem"
             component="a"
             href="#horizontal-list"
             aria-label="Profile"
           >
-            <Person />
+            Resume
           </ListItemButton>
         </ListItem>
       </List>
-    </Box>
+    </BoxContainer>
   );
 }

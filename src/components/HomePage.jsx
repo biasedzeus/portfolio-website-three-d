@@ -87,10 +87,11 @@ function HtmlContent() {
   );
 }
 
-const HomePage = () => {
+const HomePage = ({inView,ref}) => {
   return (
-    <Box sx={{ width: "100%", height: "90vh", overflowX:'hidden' }}>
+    <Box   sx={{ width: "100%", height: "100vh", overflowX:'hidden' }}>
       <Canvas
+      
         className="canvas-flexbox"
         shadows
         camera={{ position: [-5, 2, 10], fov: 60 }}

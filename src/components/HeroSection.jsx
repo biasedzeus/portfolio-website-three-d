@@ -13,6 +13,8 @@ const StyledBox = styled(Box)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   position: "absolute",
+  zIndex:'0'
+
 }));
 
 const DevName = styled(Typography)({
@@ -46,7 +48,7 @@ const StyledDivider = styled(Divider)({
   width: "0.12rem",
 });
 
-const HeroSection = () => {
+const HeroSection = ({intersecRef}) => {
   return (
     <StyledBox
       sx={{
@@ -60,6 +62,7 @@ const HeroSection = () => {
       }}
     >
       <DevName
+        ref={intersecRef}
         variant="h1"
         sx={{
           fontSize: {
