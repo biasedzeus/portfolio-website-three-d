@@ -41,11 +41,7 @@ export default function Header({inView}) {
         </ListItem>
         <ListDivider />
         <ListItem role="none">
-          <ListItemButton sx={{
-            "&:hover":{
-              filter: "drop-shadow(0 0 1em #ffff)",
-            }
-          }} role="menuitem" component="a" href="#projects">
+          <ListItemButton  role="menuitem" component="a" href="#projects">
             Projects
           </ListItemButton>
         </ListItem>
