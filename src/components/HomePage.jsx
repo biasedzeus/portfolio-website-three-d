@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo,useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+
 import {
   softShadows,
   OrbitControls,
@@ -88,6 +89,8 @@ function HtmlContent() {
 }
 
 const HomePage = ({inView,ref}) => {
+
+
   return (
     <Box   sx={{ width: "100%", height: "100vh", overflowX:'hidden' }}>
       <Canvas
