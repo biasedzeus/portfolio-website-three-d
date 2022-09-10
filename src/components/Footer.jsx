@@ -18,6 +18,7 @@ const Footer = () => {
       color: 'black',
       backgroundColor:'white',
       borderRadius:'10px',
+      filter: 'drop-shadow(0 0 1rem white)',
     }
 
 
