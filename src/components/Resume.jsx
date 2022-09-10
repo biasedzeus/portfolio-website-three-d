@@ -7,6 +7,8 @@ import { Button, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { AiFillPrinter } from "react-icons/ai";
 import donut from "../assets/donut.png"
+import Education from './Education';
+import AboutMe from "./AboutMe";
 
 const Resume = () => {
   const ResDownButton = styled(Button)({
@@ -67,9 +69,9 @@ const Resume = () => {
         </ul>
       </nav>
       <Projects />
-      <Projects />
-      <Projects />
-      <Projects />
+      <Education/>
+      <AboutMe/>
+      
     </div>
   );
 };
