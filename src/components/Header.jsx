@@ -6,60 +6,106 @@ import ListItem from "@mui/joy/ListItem";
 import ListItemButton from "@mui/joy/ListItemButton";
 import Home from "@mui/icons-material/Home";
 import styled from "@emotion/styled";
-import { useInView } from "react-intersection-observer";
+import { Link, useLocation } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 
-const BoxContainer = styled(Box)((theme) =>({
+const BoxContainer = styled(Box)((theme) => ({
   flexGrow: 1,
   position: "sticky",
-  top: '3rem',
-  borderRadius:'1.5rem',
-  zIndex:'99'
+  top: "3rem",
+  borderRadius: "1.5rem",
+  zIndex: "99",
 
-  // backgroundColor:`rgba(255,255,255,0.2)`,
 }));
 
-export default function Header({inView}) {
-  
+export default function Header({ inView }) {
+  const location = useLocation();
 
-
+  if (location.pathname === "/")
+    return (
+      <BoxContainer
+        component="nav"
+        aria-label="My site"
+        sx={{
+          backgroundColor: inView ? "rgba(255,255,255,0.2)" : "black",
+        }}
+      >
+        <List role="menubar" row>
+          <ListItem role="none">
+            <ListItemButton
+              role="menuitem"
+              component="a"
+              href="#"
+              aria-label="Home"
+            >
+              <Home />
+            </ListItemButton>
+          </ListItem>
+          <ListDivider />
+          <ListItem role="none">
+            <ListItemButton role="menuitem" component="a" href="#projects">
+              Projects
+            </ListItemButton>
+          </ListItem>
+          <ListDivider />
+          <ListItem role="none">
+            <ListItemButton
+              role="menuitem"
+              component="button"
+              onClick={() =>{
+                toast.success("Coming Soon")
+              }}
+              
+            >
+              Blog
+            </ListItemButton>
+          </ListItem>
+          <ListItem role="none" sx={{ marginInlineStart: "auto" }}>
+            <Link className="link" to="/resume">Resume</Link>
+          </ListItem>
+        </List>
+      </BoxContainer>
+    );
 
   return (
-    <BoxContainer component="nav" aria-label="My site" sx={{
-      backgroundColor:inView ? 'rgba(255,255,255,0.2)' : 'black'
-    }}>
+    <BoxContainer
+      component="nav"
+      aria-label="My site"
+      sx={{
+        backgroundColor: inView ? "rgba(255,255,255,0.2)" : "black",
+      }}
+    >
       <List role="menubar" row>
         <ListItem role="none">
-          <ListItemButton
-            role="menuitem"
-            component="a"
-            href="#"
-            aria-label="Home"
-          >
+          <Link className="link" to="/">
             <Home />
-          </ListItemButton>
+          </Link>
         </ListItem>
         <ListDivider />
         <ListItem role="none">
-          <ListItemButton  role="menuitem" component="a" href="#projects">
+          <Link
+            className="link"
+            to={{
+              pathname: "/",
+              hash: "#projects",
+            }}
+          >
             Projects
-          </ListItemButton>
+          </Link>
         </ListItem>
         <ListDivider />
         <ListItem role="none">
-          <ListItemButton role="menuitem" component="a" href="#horizontal-list">
+          <ListItemButton onClick={() =>{
+                toast.success("Coming Soon")
+              }} role="menuitem" component="button" >
             Blog
           </ListItemButton>
         </ListItem>
         <ListItem role="none" sx={{ marginInlineStart: "auto" }}>
-          <ListItemButton
-            role="menuitem"
-            component="a"
-            href="#horizontal-list"
-            aria-label="Profile"
-          >
+          <Link className="link" to="/resume">
             Resume
-          </ListItemButton>
+          </Link>
         </ListItem>
       </List>
     </BoxContainer>

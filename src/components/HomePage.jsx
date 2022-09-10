@@ -92,7 +92,7 @@ const HomePage = ({inView,ref}) => {
 
 
   return (
-    <Box   sx={{ width: "100%", height: "100vh", overflowX:'hidden' }}>
+    <Box   sx={{ width: "100vw", height: "100vh", overflowX:'hidden' }}>
       <Canvas
       
         className="canvas-flexbox"
