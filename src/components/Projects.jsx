@@ -87,7 +87,7 @@ function Projects() {
   return (
     <Section>
       <Title>
-        <h2>Projects</h2>
+        <h1 className='bluegrad'>Projects</h1>
         <Box
           sx={{
             width: "100%",

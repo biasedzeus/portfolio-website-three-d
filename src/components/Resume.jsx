@@ -9,6 +9,7 @@ import { AiFillPrinter } from "react-icons/ai";
 import donut from "../assets/donut.png"
 import Education from './Education';
 import AboutMe from "./AboutMe";
+import ContactMe from "./ContactMe";
 
 const Resume = () => {
   const ResDownButton = styled(Button)({
@@ -71,6 +72,7 @@ const Resume = () => {
       <Projects />
       <Education/>
       <AboutMe/>
+      <ContactMe/>
       
     </div>
   );

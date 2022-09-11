@@ -62,7 +62,7 @@ const AboutMe = () => {
       <Typography sx={{
 
       }} marginTop="1rem" textAlign="center" variant='h5'>
-       Hey, I am <DevName variant='h3' className='devname'>Bhanu Singh</DevName> . I am a self-taught web developer and one thing I learned as a web devloper that wireframing and planning it is as important as Implementation.
+       Hey, I am <DevName variant='h3' className='devname bluegrad'>Bhanu Singh</DevName> . I am a self-taught web developer and one thing I learned as a web devloper that wireframing and planning it is as important as Implementation.
 
       </Typography>
       </Stack>

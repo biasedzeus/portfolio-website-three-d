@@ -1,14 +1,28 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
 #root {
   height: 100%;
   display: flex;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  
 }
-body{
+body {
   overflow-x: hidden;
-
 }
 .footer {
   bottom: 0;
@@ -34,8 +48,15 @@ body{
   margin: 0 auto;
   background-color: rgba($color: #ffff, $alpha: 0.2);
   border-radius: 1rem;
+  margin-top: 6rem;
+  position: relative;
   // height: 80%;
 
+  @include mobile() {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 9rem;
+  }
   nav {
     display: flex;
     gap: 8rem;
@@ -44,9 +65,23 @@ body{
     // justify-content: space-between;
     ul {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       gap: 2rem;
       list-style: none;
+
+      li .resume-link {
+        font-size: 3rem;
+        color: white;
+      }
+
+      li .resume-link:hover {
+        filter: drop-shadow(0 0 1rem white);
+      }
+    }
+
+    @include mobile() {
+      flex-direction: column;
+      gap: 0.5rem;
     }
   }
 }
@@ -74,6 +109,9 @@ body{
   justify-content: center;
   align-items: center;
   gap: 3rem;
+  @include mobile() {
+    flex-direction: column-reverse;
+  }
 }
 .btn-container {
   display: flex;
@@ -139,4 +177,122 @@ body{
 
 .logo {
   width: 10%;
+}
+
+a.link {
+  color: "red" !important;
+  text-decoration: none;
+}
+
+.printer {
+  margin-right: 10px;
+}
+
+.aboutme {
+  background-image: linear-gradient(60deg, #e21143, #ffb03a);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.devname {
+  background: #00b4db; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: transparent;
+  background-clip: text;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.bluegrad {
+  font-family: 'Lobster';
+  background: #00b4db; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: transparent;
+  background-clip: text;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+#email{
+  background-color: white;
+  outline: none;
+  border:none;
+  padding: .5rem;
+  color: #202020;
+  border-radius: 1rem;
+  width: 70%;
+  font-size: 1.5rem;
+  @include mobile(){
+    width: 100%;
+    font-size: 1rem;
+    
+  }
+
+
+}
+
+#message{
+  background-color: white;
+  outline: none;
+  border:none;
+  // padding: .5rem;
+  color: #202020;
+  border-radius: 1rem;
+  width: 70%;
+  font-size: 1rem;
+  padding: 1rem;
+
+  @include mobile(){
+    width: 100%;
+    font-size: 1rem;
+  }
+
+
+}
+label{
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  font-weight: 500;
+}
+
+.sendmessage{
+  padding: 1rem;
+  margin: 1rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  border: none;
+  font-weight: 700;
+  background-color: #1DB954;
+}
+.sendmessage:hover{
+  filter: drop-shadow(0 0 .5rem white);
 }
