@@ -8,6 +8,7 @@ import Home from "@mui/icons-material/Home";
 import styled from "@emotion/styled";
 import { Link, useLocation } from "react-router-dom";
 import toast from 'react-hot-toast';
+import {motion} from 'framer-motion'
 
 
 const BoxContainer = styled(Box)((theme) => ({
@@ -25,7 +26,17 @@ export default function Header({ inView }) {
   if (location.pathname === "/")
     return (
       <BoxContainer
-        component="nav"
+      component={motion.div}
+      initial={{ opacity: 0, translateY: 100, }}
+      whileInView={{ opacity: 1, translateY: 0,}}
+      transition={{
+        duration: 1.5,
+        delay: 0.4,
+        type: "spring",
+        stiffness: "200",
+      }}
+      viewport={{ once: false }}
+        
         aria-label="My site"
         sx={{
           backgroundColor: inView ? "rgba(255,255,255,0.2)" : "black",

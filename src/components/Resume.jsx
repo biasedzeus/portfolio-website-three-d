@@ -9,6 +9,7 @@ import { AiFillPrinter } from "react-icons/ai";
 import Education from './Education';
 import AboutMe from "./AboutMe";
 import ContactMe from "./ContactMe";
+import { motion } from "framer-motion";
 
 const Resume = () => {
   const ResDownButton = styled(Button)({
@@ -31,7 +32,12 @@ const Resume = () => {
     },
   });
   return (
-    <div className="resume">
+    <motion.div
+     className="resume"
+     initial={{opacity:0,translateY:-50}}
+     animate={{opacity:1,translateY:0}}
+     transition={{duration:.2,type:'spring',stiffness:'200'}}
+     >
       <div className="resume-download">
         <ResDownButton variant="a" href={"#"} download>
           <AiFillPrinter size="1.5rem" className="printer"/>
@@ -73,7 +79,7 @@ const Resume = () => {
       <AboutMe/>
       <ContactMe/>
       
-    </div>
+    </motion.div>
   );
 };
 

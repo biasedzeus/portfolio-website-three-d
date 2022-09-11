@@ -14,10 +14,14 @@ import { Box } from "@mui/joy";
 import Portfolio from "./components/Portfolio";
 import toast, { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import InfinteLogos from "./components/InfinteLogos";
 import WhatIDo from "./components/WhatIDo";
+import { AnimatePresence, motion } from "framer-motion";
+
 export default function App() {
+  const location = useLocation();
+
   useEffect(() => {
     toast.success("Drag Spheres to move them", {
       duration: 10000,
@@ -39,27 +43,29 @@ export default function App() {
   return (
     <div className="App">
       <Header inView={inView} />
-      <Routes>
-        <Route path="/">
-          <Route
-            index
-            element={
-              <>
-                <Box sx={{ height: "100vh", width: "100vw" }}>
-                  <HomePage />
-                </Box>
-                <HeroSection intersecRef={ref} />
-                <WhatIDo/>
-                <InfinteLogos/>
-                <Box sx={{ maxWidth: "90%" }}>
+      <AnimatePresence>
+        <Routes>
+          <Route path="/">
+            <Route
+              index
+              element={
+                <>
+                  <Box sx={{ height: "100vh", width: "100vw" }}>
+                    <HomePage />
+                    <HeroSection intersecRef={ref} />
+                  </Box>
+                  <WhatIDo />
+                  <InfinteLogos />
                   <Portfolio />
-                </Box>
-              </>
-            }
-          />
-          <Route path="resume" element={<Resume />} />
-        </Route>
-      </Routes>
+                  {/* <Box sx={{ maxWidth: "90%" }}>
+                </Box> */}
+                </>
+              }
+            />
+            <Route path="resume" element={<Resume />} />
+          </Route>
+        </Routes>
+      </AnimatePresence>
       <Box sx={{ maxWidth: "90%" }}>
         <Footer />
       </Box>

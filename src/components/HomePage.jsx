@@ -15,7 +15,7 @@ import {
 } from "@react-three/drei";
 import { Container } from "@mui/system";
 import { Box } from "@mui/joy";
-// import "./styles.css"
+import {motion} from 'framer-motion';
 
 // Inject soft shadow shader
 softShadows();
@@ -92,7 +92,20 @@ const HomePage = ({inView,ref}) => {
 
 
   return (
-    <Box   sx={{ width: "100vw", height: "100vh", overflowX:'hidden' }}>
+    <Box 
+      sx={{ width: "100vw", height: "100vh", overflowX:'hidden' }}
+      component={motion.div}
+      initial={{ opacity: 0, translateY: 100 }}
+      whileInView={{ opacity: 1, translateY: 0 }}
+      transition={{
+        duration: 1.5,
+        delay: 0.4,
+        type: "spring",
+        stiffness: "200",
+      }}
+      viewport={{ once: false }}
+      
+      >
       <Canvas
       
         className="canvas-flexbox"

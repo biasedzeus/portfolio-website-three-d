@@ -8,6 +8,7 @@ import { portfolioProjects, sameShit } from "../data/portfolioProjects";
 import Tab from "@mui/material/Tab";
 // import TabPanel from "@mui/joy/TabPanel";
 import ResumeProjectCard from "./ResumeProjectCard";
+import {motion} from 'framer-motion';
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
 function TabPanel(props) {
@@ -85,7 +86,9 @@ function Projects() {
   console.log("jobs", jobs);
   
   return (
-    <Section>
+    <Section
+    
+     >
       <Title>
         <h1 className='bluegrad'>Projects</h1>
         <Box

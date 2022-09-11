@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
-import { Box } from "@mui/joy";
-import { Button, Divider, Typography } from "@mui/material";
+import { Button, Divider, Typography, Box, Stack } from "@mui/material";
 import React from "react";
-import { Stack } from "@mui/system";
 import { SiLinkedin } from "react-icons/si";
 import { DiGithubFull } from "react-icons/di";
+import { motion } from "framer-motion";
 
-const StyledBox = styled(Box)(({ theme }) => ({
+const StyledBox = styled(Stack)({
   width: "fit-content",
   display: "flex",
   flexDirection: "column",
@@ -14,7 +13,8 @@ const StyledBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   position: "absolute",
   zIndex: "0",
-}));
+  padding: "2rem",
+});
 
 const DevName = styled(Typography)({
   fontWeight: 900,
@@ -49,80 +49,97 @@ const StyledDivider = styled(Divider)({
 
 const HeroSection = ({ intersecRef }) => {
   return (
-    <StyledBox
+    <Stack
+     
       sx={{
-        top: {
-          xs: "18rem",
-          sm: "12rem",
-          md: "8rem",
-          lg: "8rem",
-          xl: "12rem",
-        },
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      <DevName
-        ref={intersecRef}
-        variant="h1"
+      <StyledBox
+       component={motion.div}
+       initial={{ opacity: 0, translateY: -100 }}
+       animate={{ opacity: 1, translateY: 0 }}
+       transition={{
+         duration: 1.5,
+         delay: 0.4,
+         type: "spring",
+         stiffness: "200",
+       }}
         sx={{
-          fontSize: {
-            xs: "3rem",
-            sm: "4rem",
+          top: {
+            xs: "18rem",
+            sm: "12rem",
             md: "8rem",
             lg: "8rem",
             xl: "12rem",
           },
         }}
-        component="h2"
       >
-        Bhanu Singh
-      </DevName>
-      <DevTitle
-        sx={{
-          fontSize: {
-            xs: "2rem",
-            sm: "2rem",
-            md: "2rem",
-            lg: "6rem",
-            xl: "10rem",
-          },
-        }}
-        variant="h2"
-        component="h2"
-      >
-        Web Devloper
-      </DevTitle>
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-around"
-        spacing={{ xs: 1, sm: 1, md: 2, lg: 4 }}
-      >
-        <ResumeButton
+        <DevName
+          ref={intersecRef}
+          variant="h1"
           sx={{
             fontSize: {
-              xs: "1rem",
-              sm: "1.5rem",
-              md: "1.5rem",
-              lg: "1.5rem",
-              xl: "3rem",
+              xs: "3rem",
+              sm: "4rem",
+              md: "8rem",
+              lg: "8rem",
+              xl: "12rem",
             },
           }}
-          onClick={() => alert("btn clicked")}
+          component="h2"
         >
-          Resume
-        </ResumeButton>
+          Bhanu Singh
+        </DevName>
+        <DevTitle
+          sx={{
+            fontSize: {
+              xs: "2rem",
+              sm: "2rem",
+              md: "2rem",
+              lg: "6rem",
+              xl: "10rem",
+            },
+          }}
+          variant="h2"
+          component="h2"
+        >
+          Web Devloper
+        </DevTitle>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-around"
+          spacing={{ xs: 1, sm: 1, md: 2, lg: 4 }}
+        >
+          <ResumeButton
+            sx={{
+              fontSize: {
+                xs: "1rem",
+                sm: "1.5rem",
+                md: "1.5rem",
+                lg: "1.5rem",
+                xl: "3rem",
+              },
+            }}
+            onClick={() => alert("btn clicked")}
+          >
+            Resume
+          </ResumeButton>
 
-        <StyledDivider
-          light={true}
-          variant="inset"
-          orientation="vertical"
-          flexItem
-        />
+          <StyledDivider
+            light={true}
+            variant="inset"
+            orientation="vertical"
+            flexItem
+          />
 
-        <DiGithubFull className="herosection-logo" />
-        <SiLinkedin className="herosection-logo" />
-      </Stack>
-    </StyledBox>
+          <DiGithubFull className="herosection-logo" />
+          <SiLinkedin className="herosection-logo" />
+        </Stack>
+      </StyledBox>
+    </Stack>
   );
 };
 

@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { MdDesignServices } from "react-icons/md";
 import { RiLayout5Fill } from "react-icons/ri";
 import toast from 'react-hot-toast';
+import {motion} from 'framer-motion';
 
 
 const Section = styled(Box)({
@@ -95,6 +96,17 @@ const handleOnClick = () =>{
       </Title>
       <Section>
         <ContentBox
+         component={motion.div}
+         initial={{ opacity: 0, translateY: -100 }}
+         whileInView={{ opacity: 1, translateY: 0 }}
+         transition={{
+           duration: .5,
+           delay: 0.2,
+           type: "spring",
+           stiffness: "200",
+         }}
+         viewport={{ once: true }}
+    
           sx={{
             minWidth: {
               xs: "250px",
@@ -114,6 +126,16 @@ const handleOnClick = () =>{
           </StyledIconButton>
         </ContentBox>
         <ContentBox
+         component={motion.div}
+         initial={{ opacity: 0, translateY: -100 }}
+         whileInView={{ opacity: 1, translateY: 0 }}
+         transition={{
+           duration: .5,
+           delay: 0.4,
+           type: "spring",
+           stiffness: "200",
+         }}
+         viewport={{ once: false }}
           sx={{
             minWidth: {
               xs: "250px",
