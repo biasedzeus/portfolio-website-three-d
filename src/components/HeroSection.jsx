@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
-import { Box, List } from "@mui/joy";
-import { Button, Divider, ListItem, Typography } from "@mui/material";
+import { Box } from "@mui/joy";
+import { Button, Divider, Typography } from "@mui/material";
 import React from "react";
-import GithubLogo from "../assets/GitHub_Logo_White.png";
-import LinkedInLogo from "../assets/linkedin-white.png";
 import { Stack } from "@mui/system";
+import { SiLinkedin } from "react-icons/si";
+import { DiGithubFull } from "react-icons/di";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   width: "fit-content",
@@ -13,8 +13,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   position: "absolute",
-  zIndex:'0'
-
+  zIndex: "0",
 }));
 
 const DevName = styled(Typography)({
@@ -48,7 +47,7 @@ const StyledDivider = styled(Divider)({
   width: "0.12rem",
 });
 
-const HeroSection = ({intersecRef}) => {
+const HeroSection = ({ intersecRef }) => {
   return (
     <StyledBox
       sx={{
@@ -119,12 +118,9 @@ const HeroSection = ({intersecRef}) => {
           orientation="vertical"
           flexItem
         />
-        <img
-          style={{ height: "48px", width: "25%" }}
-          src={GithubLogo}
-          alt="GithubLogo"
-        />
-        <img src={LinkedInLogo} alt="GithubLogo" />
+
+        <DiGithubFull className="herosection-logo" />
+        <SiLinkedin className="herosection-logo" />
       </Stack>
     </StyledBox>
   );

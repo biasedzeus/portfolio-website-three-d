@@ -20,6 +20,7 @@
     "@react-three/fiber": "^8.2.2",
     "@react-three/flex": "^1.0.0",
     "@react-three/postprocessing": "^2.6.2",
+    "framer-motion": "^7.3.2",
     "lerp": "^1.0.3",
     "open-simplex-noise": "^2.5.0",
     "react": "^18.2.0",

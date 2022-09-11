@@ -6,7 +6,6 @@ import { SiAngellist, SiLinkedin, SiGmail } from "react-icons/si";
 import { Button, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { AiFillPrinter } from "react-icons/ai";
-import donut from "../assets/donut.png"
 import Education from './Education';
 import AboutMe from "./AboutMe";
 import ContactMe from "./ContactMe";
@@ -34,7 +33,7 @@ const Resume = () => {
   return (
     <div className="resume">
       <div className="resume-download">
-        <ResDownButton variant="a" href={donut} download>
+        <ResDownButton variant="a" href={"#"} download>
           <AiFillPrinter size="1.5rem" className="printer"/>
           Download Resume
         </ResDownButton>

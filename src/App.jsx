@@ -15,6 +15,8 @@ import Portfolio from "./components/Portfolio";
 import toast, { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import InfinteLogos from "./components/InfinteLogos";
+import WhatIDo from "./components/WhatIDo";
 export default function App() {
   useEffect(() => {
     toast.success("Drag Spheres to move them", {
@@ -47,6 +49,8 @@ export default function App() {
                   <HomePage />
                 </Box>
                 <HeroSection intersecRef={ref} />
+                <WhatIDo/>
+                <InfinteLogos/>
                 <Box sx={{ maxWidth: "90%" }}>
                   <Portfolio />
                 </Box>
