@@ -38,7 +38,7 @@ export default function App() {
     threshold: 0.9,
   });
 
-  console.log("inView", inView);
+  // console.log("inView", inView);
 
   return (
     <div className="App">

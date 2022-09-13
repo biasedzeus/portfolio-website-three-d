@@ -7,6 +7,7 @@ import styled from "@emotion/styled";
 import { SiAngellist, SiLinkedin, SiGmail } from "react-icons/si";
 import { FaDev } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link as RLink } from "react-router-dom";
 
 const Footer = () => {
   const StyledLink = styled(Link)({
@@ -30,7 +31,7 @@ const Footer = () => {
         initial={{ opacity: 0, translateY: 100 }}
         whileInView={{ opacity: 1, translateY: 0 }}
         transition={{
-          duration: .3,
+          duration: 0.3,
           type: "spring",
           stiffness: "200",
         }}
@@ -75,7 +76,9 @@ const Footer = () => {
                 <StyledLink href="#projects">Projects</StyledLink>
               </ListItem>
               <ListItem>
-                <StyledLink to="/menu">Resume</StyledLink>
+                <StyledLink>
+                  <RLink className="footer-router-link" to="/resume">Resume</RLink>
+                </StyledLink>
               </ListItem>
               <ListItem>
                 <StyledLink to="#contactme">Contact Me</StyledLink>
@@ -130,7 +133,7 @@ const Footer = () => {
           textAlign="center"
           marginTop="10px"
         >
-          <p>© Made with ❤️ - By Biasedzeus</p>
+          <p> made with ❤️ ©biasedzeus </p>
         </Typography>
       </Box>
     </Box>

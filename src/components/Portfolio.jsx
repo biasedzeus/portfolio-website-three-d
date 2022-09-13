@@ -3,6 +3,8 @@ import { Stack,Box } from "@mui/material";
 import React from "react";
 import ProjectCard from "./ProjectCard";
 import {motion} from 'framer-motion';
+import {portfolioProjects} from '../data/portfolioProjects'
+
 
 const Portfolio = () => {
   return (
@@ -37,19 +39,13 @@ const Portfolio = () => {
             >Email me.</Link>
       </Typography>
     <Stack flexDirection="row" flexWrap='wrap' gap="1rem" alignItems="center" justifyContent="center" p={5}>
-      <ProjectCard />
-      <ProjectCard />
-      <ProjectCard />
-      <ProjectCard />
-      <ProjectCard />
-      <ProjectCard />
-      <ProjectCard />
-      <ProjectCard />
-      <ProjectCard />
+     {portfolioProjects.map((project) =>{
+      return <ProjectCard project={project}/>
+     })}
 
     </Stack>
     </Box>
   );
 };
-
+ 
 export default Portfolio;
