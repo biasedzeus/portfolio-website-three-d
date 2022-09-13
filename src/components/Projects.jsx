@@ -41,7 +41,7 @@ function Projects() {
   const [loading, setLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
   const [value, setValue] = useState(1);
-  console.log(portfolioProjects);
+  // console.log(portfolioProjects);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -83,7 +83,7 @@ function Projects() {
 
   if (!jobs) return <div>Loading.......</div>;
 
-  console.log("jobs", jobs);
+  // console.log("jobs", jobs);
 
   return (
     <Section>
