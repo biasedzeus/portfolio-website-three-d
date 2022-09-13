@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import { Button, Divider, Typography, Box, Stack } from "@mui/material";
+import { Divider, Typography, Stack, Link } from "@mui/material";
 import React from "react";
 import { SiLinkedin } from "react-icons/si";
 import { DiGithubFull } from "react-icons/di";
 import { motion } from "framer-motion";
+import { Link as RouterLink } from "react-router-dom";
 
 const StyledBox = styled(Stack)({
   width: "fit-content",
@@ -25,13 +26,16 @@ const DevTitle = styled(Typography)({
   textShadow: "1px 2px 10px rgba(10, 10, 10, 0.97)",
 });
 
-const ResumeButton = styled(Button)({
+const ResumeButton = styled(Link)({
   color: "white",
   backgroundColor: "rgba(255,255,255,0.2)",
   marginTop: "1rem",
   padding: "1rem 2rem 1rem 2rem",
   borderRadius: "2.5rem",
   boxShadow: "1px 2px 10px rgba(24, 24, 24, 0.1)",
+  textDecoration: "none",
+  cursor: "pointer",
+
   ":hover": {
     fill: "ButtonHighlight",
     backgroundColor: "white",
@@ -47,25 +51,27 @@ const StyledDivider = styled(Divider)({
   width: "0.12rem",
 });
 
+const StyledLink = styled(Link)({
+  color: "white",
+});
 const HeroSection = ({ intersecRef }) => {
   return (
     <Stack
-     
       sx={{
         alignItems: "center",
         justifyContent: "center",
       }}
     >
       <StyledBox
-       component={motion.div}
-       initial={{ opacity: 0, translateY: -100 }}
-       animate={{ opacity: 1, translateY: 0 }}
-       transition={{
-         duration: 1.5,
-         delay: 0.4,
-         type: "spring",
-         stiffness: "200",
-       }}
+        component={motion.div}
+        initial={{ opacity: 0, translateY: -100 }}
+        animate={{ opacity: 1, translateY: 0 }}
+        transition={{
+          duration: 1.5,
+          delay: 0.4,
+          type: "spring",
+          stiffness: "200",
+        }}
         sx={{
           top: {
             xs: "18rem",
@@ -123,9 +129,8 @@ const HeroSection = ({ intersecRef }) => {
                 xl: "3rem",
               },
             }}
-            onClick={() => alert("btn clicked")}
           >
-            Resume
+            <RouterLink className="home-resume-download-btn" to="/resume">Resume</RouterLink>
           </ResumeButton>
 
           <StyledDivider
@@ -135,8 +140,16 @@ const HeroSection = ({ intersecRef }) => {
             flexItem
           />
 
-          <DiGithubFull className="herosection-logo" />
-          <SiLinkedin className="herosection-logo" />
+          <StyledLink
+            target="_blank"
+            rel="noopener"
+            href="https://github.com/biasedzeus"
+          >
+            <DiGithubFull className="herosection-logo" />
+          </StyledLink>
+          <StyledLink target="_blank" rel="noopener" href="https://linkedin.in">
+            <SiLinkedin className="herosection-logo" />
+          </StyledLink>
         </Stack>
       </StyledBox>
     </Stack>
