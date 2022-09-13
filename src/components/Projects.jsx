@@ -3,12 +3,12 @@ import { Box, Stack, Tabs, Typography } from "@mui/material";
 import { textAlign } from "@mui/system";
 import React, { useState, useEffect } from "react";
 import { FaAngleDoubleRight } from "react-icons/fa";
-import { portfolioProjects, sameShit } from "../data/portfolioProjects";
+import { portfolioProjects } from "../data/portfolioProjects";
 
 import Tab from "@mui/material/Tab";
 // import TabPanel from "@mui/joy/TabPanel";
 import ResumeProjectCard from "./ResumeProjectCard";
-import {motion} from 'framer-motion';
+import { motion } from "framer-motion";
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
 function TabPanel(props) {
@@ -58,7 +58,7 @@ function Projects() {
     borderRadius: "1.4rem",
     marginBottom: "2rem",
     flexDirection: "column",
-    height: "435px",
+    minHeight: "435px",
     textOverflow: "ellipsis",
   });
 
@@ -78,27 +78,24 @@ function Projects() {
   });
 
   useEffect(() => {
-    setJobs(sameShit);
+    setJobs(portfolioProjects);
   }, []);
 
   if (!jobs) return <div>Loading.......</div>;
 
   console.log("jobs", jobs);
-  
+
   return (
-    <Section
-    
-     >
+    <Section>
       <Title>
-        <h1 className='bluegrad'>Projects</h1>
+        <h1 className="bluegrad">Projects</h1>
         <Box
           sx={{
             width: "100%",
             typography: "body1",
             display: "flex",
             flexDirection: {
-              xs:'column',
-             
+              xs: "column",
             },
           }}
         >
@@ -106,28 +103,32 @@ function Projects() {
             <Tabs
               sx={{
                 display: "flex",
-                flexDirection: "column",
+                flexDirection: "row",
               }}
               onChange={handleChange}
               textColor="red"
-              centered
+              // centered
               aria-label="projects"
               value={value}
+              variant="scrollable"
+              scrollButtons
+              allowScrollButtonsMobile
+              selectionFollowsFocus
             >
-              <Tab label="Item One" {...a11yProps(0)} />
-              <Tab label="Item Two" {...a11yProps(1)} />
-              <Tab label="Item Three" {...a11yProps(2)} />
+              {jobs &&
+                jobs.map((project, index) => {
+                  return <Tab label={project.title} {...a11yProps(index)} />;
+                })}
             </Tabs>
           </Box>
-          <TabPanel value={value} index={0}>
-            <ResumeProjectCard />
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <ResumeProjectCard />
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            <ResumeProjectCard />
-          </TabPanel>
+          {jobs &&
+            jobs.map((project, index) => {
+              return (
+                <TabPanel value={value} index={index}>
+                  <ResumeProjectCard project={project} />
+                </TabPanel>
+              );
+            })}
         </Box>
         <div className="underline"></div>
       </Title>

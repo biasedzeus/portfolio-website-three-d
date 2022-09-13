@@ -1,4 +1,4 @@
-import { Card, Paper, Typography } from "@mui/material";
+import { Card, Link, Paper, Typography } from "@mui/material";
 import { Stack,Box } from "@mui/material";
 import React from "react";
 import ProjectCard from "./ProjectCard";
@@ -18,7 +18,24 @@ const Portfolio = () => {
     }}
     viewport={{ once: false }} id="projects" paddingTop="4rem">
 
-      <Typography  fontFamily={"Lobster"} fontSize="3rem" textAlign="center" p={2} >Portfolio Projects</Typography>
+      <Typography  fontFamily={"Lobster"} fontWeight="300" fontSize="3rem" textAlign="center" p={2} >My Recent Projects</Typography>
+      <Typography   
+        fontSize="1.2rem"
+        textAlign="center"
+        fontFamily="Poppins"
+        p={2} >
+        Here are few projects I've worked on recently.Want to see more?.
+        <Link sx={{
+          color:'white',
+          textDecoration:'none',
+          fontWeight:'600',
+          cursor: 'pointer',
+          ":hover":{
+            color:'black',
+            }}}
+            href="mailto:bhanusingh1078@gmail.com"
+            >Email me.</Link>
+      </Typography>
     <Stack flexDirection="row" flexWrap='wrap' gap="1rem" alignItems="center" justifyContent="center" p={5}>
       <ProjectCard />
       <ProjectCard />

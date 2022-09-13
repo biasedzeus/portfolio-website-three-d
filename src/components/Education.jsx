@@ -1,16 +1,9 @@
-import React from 'react';
-import {
-  Box,
-  Typography,
-  Stack,
-  IconButton,
-
-
-} from '@mui/material';
-import styled from '@emotion/styled';
+import React from "react";
+import { Box, Typography, Stack, IconButton } from "@mui/material";
+import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
 const Education = () => {
-
   const Section = styled(Box)({
     backgroundColor: "white",
     marginTop: "1rem",
@@ -39,31 +32,40 @@ const Education = () => {
   const BtnContainer = styled(Stack)({
     // flexDirection: "column",
     // gap: "3rem",
-    justifyContent:'flex-start',
-    marginLeft:'4rem',
-    gap:'1rem'
-  
+    justifyContent: "flex-start",
+    marginLeft: "4rem",
+    gap: "1rem",
   });
   const StyledIconButton = styled(IconButton)({
-    marginTop:'1rem',
-    fontSize:'1rem',
-    backgroundColor:'#606060',
-    color:'white',
-    borderRadius:'1rem',
-    padding:'.5rem',
-    fontWeight:'700',
+    marginTop: "1rem",
+    fontSize: "1rem",
+    backgroundColor: "#606060",
+    color: "white",
+    borderRadius: "1rem",
+    padding: ".5rem",
+    fontWeight: "700",
 
-   ":hover":{
-    backgroundColor:'blueviolet',
-     filter:'drop-shadow(0 0 1em blueviolet)',
-     color:'white',
-   }
-  })
+    ":hover": {
+      backgroundColor: "blueviolet",
+      filter: "drop-shadow(0 0 1em blueviolet)",
+      color: "white",
+    },
+  });
 
   return (
-    <Section>
+    <Section
+      component={motion.div}
+      initial={{ opacity: 0, translateY: -100 }}
+      whileInView={{ opacity: 1, translateY: 0 }}
+      transition={{
+        duration: 0.5,
+        type: "spring",
+        stiffness: "100",
+      }}
+      viewport={{ once: false }}
+    >
       <Title>
-        <h1 className='bluegrad'>Education</h1>
+        <h1 className="bluegrad">Education</h1>
         <Box
           sx={{
             width: "100%",
@@ -119,8 +121,9 @@ const Education = () => {
             textAlign="left"
             variant="subtitle2"
           >
-            Madhya Pradesh Board Of Secondary Education          </Typography>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}></Box>
+            Madhya Pradesh Board Of Secondary Education{" "}
+          </Typography>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}></Box>
           <Typography
             fontWeight="600"
             fontSize="1rem"
@@ -143,16 +146,14 @@ const Education = () => {
             textAlign="left"
             variant="subtitle2"
           >
-            Madhya Pradesh Board Of Secondary Education 
+            Madhya Pradesh Board Of Secondary Education
           </Typography>
-
-          
         </Box>
         <div className="underline"></div>
       </Title>
       <Container className="projects-contdainer"></Container>
     </Section>
   );
-}
+};
 
 export default Education;

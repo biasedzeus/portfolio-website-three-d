@@ -6,11 +6,36 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { Link } from "@mui/material";
+import { Button, Link, List, ListItem, Stack } from "@mui/material";
+import { AiFillCheckCircle } from "react-icons/ai";
+import styled from "@emotion/styled";
+import {motion} from 'framer-motion';
 
-export default function ResumeProjectCard() {
+const StyledIconButton = styled(IconButton)({
+  backgroundColor: "black",
+  borderRadius: "20px",
+  margin: "10px",
+});
+
+const StyledLink = styled(Link)({
+  textDecoration:'none',
+  fontWeight:'500',
+  color:'white',
+  padding:"0 5px",
+  ":hover":{
+    // backgroundColor:'white',
+    color:'black',
+  }
+})
+export default function ResumeProjectCard({ project }) {
   return (
-    <Card sx={{ display: "flex",maxHeight:'300px' }}>
+    <Card
+      sx={{ display: "flex", minHeight: "300px", justifyContent: "center",}}
+      component={motion.div}
+                 initial={{opacity:0,translateY:-50}}
+                 animate={{opacity:1,translateY:0}}
+                 transition={{duration:.2,type:'spring',stiffness:'200'}}
+    >
       <Box sx={{ display: "flex", flexDirection: "row" }}>
         <Box
           sx={{
@@ -19,28 +44,45 @@ export default function ResumeProjectCard() {
             alignItems: "center",
             pl: 1,
             pb: 1,
+            textAlign: "left",
+            width: {
+              xs: "fit-content",
+              sm: "100%",
+            },
           }}
         >
-          <Typography variant="h6">Firebase Messenger</Typography>
-          <Typography p={1}>
-            1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            temporibus enim atque ducimus sapiente modi iste sequi, culpa
-           </Typography>
-          <Typography p={1}>
-            1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            temporibus enim atque ducimus sapiente modi iste sequi, culpa
-           </Typography>
-          <Typography p={1}>
-            1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            temporibus enim atque ducimus sapiente modi iste sequi, culpa
-           </Typography>
-        
-          <IconButton>
-            <Link>Source</Link>
-          </IconButton>
-          <IconButton>
-            <Link>Source</Link>
-          </IconButton>
+          <Typography fontWeight="600" fontFamily="Poppins" variant="h6">
+            {project.title}
+          </Typography>
+          <List>
+            <Typography p={1}>Features of the App :</Typography>
+            {project.description.map((feature) => {
+              return (
+                <ListItem>
+                  <Typography sx={{textAlign:{xs:'left'}}} fontFamily="Poppins" textAlign="left">
+                   <AiFillCheckCircle className="resume-check-circle" color="#731DD8" />
+                    {feature}
+                  </Typography>
+                </ListItem>
+              );
+            })}
+          </List>
+          <Stack
+            flexDirection="row"
+            sx={{
+              flexDirection: {
+                xs: "column",
+                sm: "row",
+              },
+            }}
+          >
+            <StyledIconButton>
+              <StyledLink target="_blank" rel="noopener" href={project.site_URL}>Visit Site</StyledLink>
+            </StyledIconButton>
+            <StyledIconButton >
+              <StyledLink target="_blank" rel="noopener" href={project.github_URL}>Source Code</StyledLink>
+            </StyledIconButton>
+          </Stack>
         </Box>
       </Box>
     </Card>

@@ -135,7 +135,7 @@ const handleOnClick = () =>{
            type: "spring",
            stiffness: "200",
          }}
-         viewport={{ once: false }}
+         viewport={{ once: true }}
           sx={{
             minWidth: {
               xs: "250px",

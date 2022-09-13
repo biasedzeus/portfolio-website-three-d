@@ -1,78 +1,82 @@
 export const portfolioProjects = [
-    {   id:"ghasdfagsd",
-        order:1,
-        title:'Messenger Firebase',
-        site_URL:'',
-        github_URL:'',
-        imgURL:'',
-        description:[
-            "someText"
-        ],
-        techUsed:[],
-        dates: "May 2015 - December 2015",
-    },
-    {   id:"ghasffdfagsd",
-        order:2,
-        title:'Youtube MUI',
-        site_URL:'',
-        github_URL:'',
-        imgURL:'',
-        description:[
-            "someText"
-        ],
-        techUsed:[],
-        dates: "May 2015 - December 2015",
-    },
-    {   id:"ghassdsddfagsd",
-        order:3,
-        title:'PortFolio Website',
-        site_URL:'',
-        github_URL:'',
-        imgURL:'',
-        description:[
-            "someText"
-        ],
-        techUsed:[],
-        dates: "May 2015 - December 2015",
-    },
-]
+  {
+    id: "ghasdfagsd",
+    order: 1,
+    title: "Messenger Firebase",
+    site_URL: "messenger-firebase.netlify.app/login",
+    github_URL: "https://github.com/biasedzeus/messenger-react-firebase",
+    imgURL: "",
+    description: [
+      "Register User with an avatar.",
+       "Login a user using Firebase.",
+       "Search other resgitered users.",
+       "Chat with the selected user.",
+    ],
+    techUsed: [],
+    dates: "May 2015 - December 2015",
+  },
+  {
+    id: "ghasdfsxagsd",
+    order: 2,
+    title: "Youtube MUI",
+    site_URL: "youtubemui.netlify.app/",
+    github_URL: "https://github.com/biasedzeus/youtube-mui",
+    imgURL: "",
+    description: [
+      "Search youtube videos.",
+      "Play videos using react-player.",
+      "Sidebar with tabs.",
+      "Search modal for Mobile devices.",
+      ],
+    techUsed: [],
+    dates: "May 2015 - December 2015",
+  },
+  {
+    id: "ghassdsddfagsd",
+    order: 3,
+    title: "PortFolio Website",
+    site_URL: "",
+    github_URL: "",
+    imgURL: "",
+    description: [
+      "Managing UI using HTML, CSS and JavaScript.",
+      "Home Page with Three-d scene.",
+      "Projects showcase.",
+      "Resume showcase.",
+      "Blog soon to be added",
+    ],
+    techUsed: [],
+  },
+  {
+    id: "ghasdfagsd",
+    order: 4,
+    title: "Shopping Cart",
+    site_URL: "",
+    github_URL: "https://github.com/biasedzeus/portfolio-website-three-d/tree/main",
+    imgURL: "",
+    description: [
+      "Add Items to the cart",
+      "Items can only be added once",
+      "CheckOut from Cart",
+      "On successfull checkout recieve a toast.",
+    ],
+    techUsed: [],
+  },
 
-export const sameShit = [
-    {
-      "id": "recAGJfiU4CeaV0HL",
-      "order": 3,
-      "title": "Full Stack Web Developer",
-      "dates": "December 2015 - Present",
-      "duties": [
-        "Tote bag sartorial mlkshk air plant vinyl banjo lumbersexual poke leggings offal cold-pressed brunch neutra. Hammock photo booth live-edge disrupt.",
-        "Post-ironic selvage chambray sartorial freegan meditation. Chambray chartreuse kombucha meditation, man bun four dollar toast street art cloud bread live-edge heirloom.",
-        "Butcher drinking vinegar franzen authentic messenger bag copper mug food truck taxidermy. Mumblecore lomo echo park readymade iPhone migas single-origin coffee franzen cloud bread tilde vegan flexitarian."
-      ],
-      "company": "TOMMY"
-    },
-    {
-      "id": "recIL6mJNfWObonls",
-      "order": 2,
-      "title": "Front-End Engineer",
-      "dates": "May 2015 - December 2015",
-      "duties": [
-        "Hashtag drinking vinegar scenester mumblecore snackwave four dollar toast, lumbersexual XOXO. Cardigan church-key pabst, biodiesel vexillologist viral squid.",
-        "Franzen af pitchfork, mumblecore try-hard kogi XOXO roof party la croix cardigan neutra retro tattooed copper mug. Meditation lomo biodiesel scenester",
-        "Fam VHS enamel pin try-hard echo park raw denim unicorn fanny pack vape authentic. Helvetica fixie church-key, small batch jianbing messenger bag scenester +1",
-        "Fam VHS enamel pin try-hard echo park raw denim unicorn fanny pack vape authentic. Helvetica fixie church-key, small batch jianbing messenger bag scenester +1"
-      ],
-      "company": "BIGDROP"
-    },
-    {
-      "id": "rec61x18GVY99hQq5",
-      "order": 1,
-      "title": "Engineering Intern",
-      "dates": "May 2014 - September 2015",
-      "duties": [
-        "I'm baby woke mumblecore stumptown enamel pin. Snackwave prism pork belly, blog vape four loko sriracha messenger bag jean shorts DIY bushwick VHS. Banjo post-ironic hella af, palo santo craft beer gluten-free.",
-        "YOLO drinking vinegar chambray pok pok selfies quinoa kinfolk pitchfork street art la croix unicorn DIY. Woke offal jianbing venmo tote bag, palo santo subway tile slow-carb post-ironic pug ugh taxidermy squid.",
-        "Pour-over glossier chambray umami 3 wolf moon. Iceland kale chips asymmetrical craft beer actually forage, biodiesel tattooed fingerstache. Pork belly lomo man braid, portland pitchfork locavore man bun prism."
-      ],
-      "company": "CUKER"
-    }
-  ]
+  {
+    id: "ghasffdfasefgsd",
+    order: 5,
+    title: "Text Format Analyzer",
+    site_URL: "https://textformatanalyzer.netlify.app/",
+    github_URL: "https://github.com/biasedzeus/text-formatter-analyzer",
+    imgURL: "",
+    description: [
+      " Count the the number of words",
+      " estimate the time to read the whole text.",
+      " Convert all to upperCase or LowerCase.",
+      " To remove whitespaces ",
+      "To copy the result to the clipboard ",
+    ],
+    techUsed: [],
+  },
+];
