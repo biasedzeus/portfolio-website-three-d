@@ -18,6 +18,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import InfinteLogos from "./components/InfinteLogos";
 import WhatIDo from "./components/WhatIDo";
 import { AnimatePresence, motion } from "framer-motion";
+import ContactMe from "./components/ContactMe";
 
 export default function App() {
   const location = useLocation();
@@ -57,6 +58,12 @@ export default function App() {
                   <WhatIDo />
                   <InfinteLogos />
                   <Portfolio />
+                  <Box sx={{ height: "100vh",width:{xs:'90%',
+                  sm:'70%',
+                  xl:'50%',
+                  } }}>
+                    <ContactMe />
+                  </Box>
                   {/* <Box sx={{ maxWidth: "90%" }}>
                 </Box> */}
                 </>

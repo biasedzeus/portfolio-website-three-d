@@ -37,7 +37,7 @@ const ResumeButton = styled(Link)({
   cursor: "pointer",
 
   ":hover": {
-    fill: "ButtonHighlight",
+    // fill: "ButtonHighlight",
     backgroundColor: "white",
     color: "black",
     boxShadow: "1px 2px 10px rgba(10, 10, 10, 0.97) ",
@@ -119,27 +119,29 @@ const HeroSection = ({ intersecRef }) => {
           justifyContent="space-around"
           spacing={{ xs: 1, sm: 1, md: 2, lg: 4 }}
         >
-          <ResumeButton
-            sx={{
-              fontSize: {
-                xs: "1rem",
-                sm: "1.5rem",
-                md: "1.5rem",
-                lg: "1.5rem",
-                xl: "3rem",
-              },
-            }}
-          >
-            <RouterLink className="home-resume-download-btn" to="/resume">Resume</RouterLink>
-          </ResumeButton>
-
+          {" "}
+          <RouterLink className="home-resume-download-btn" to="/resume">
+            <ResumeButton
+              sx={{
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.5rem",
+                  md: "1.5rem",
+                  lg: "1.5rem",
+                  xl: "3rem",
+                },
+            
+              }}
+            >
+              Resume
+            </ResumeButton>
+          </RouterLink>
           <StyledDivider
             light={true}
             variant="inset"
             orientation="vertical"
             flexItem
           />
-
           <StyledLink
             target="_blank"
             rel="noopener"

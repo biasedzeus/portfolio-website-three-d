@@ -84,7 +84,7 @@ export const portfolioProjects = [
     title: "User Info API",
     site_URL: "https://fetchuserslistwithapi.netlify.app/",
     github_URL: "https://github.com/biasedzeus/randomUserBday-Api-app",
-    imgURL: shoppingCart,
+    imgURL: userlistApi,
     features: [
       "Add Items to the cart",
       "Items can only be added once",
