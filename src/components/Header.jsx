@@ -11,17 +11,20 @@ import toast from 'react-hot-toast';
 import {motion} from 'framer-motion'
 
 
-const BoxContainer = styled(Box)((theme) => ({
+const BoxContainer = styled(Box)({
   flexGrow: 1,
   position: "sticky",
   top: "3rem",
   borderRadius: "1.5rem",
   zIndex: "99",
 
-}));
+});
 
 export default function Header({ inView }) {
   const location = useLocation();
+ 
+
+
 
   if (location.pathname === "/")
     return (
@@ -33,7 +36,7 @@ export default function Header({ inView }) {
         duration: 1,
         delay: 0.5,
         type: "spring",
-        stiffness: "100",
+        stiffness: "200",
       }}
       viewport={{ once: false }}
         
@@ -41,6 +44,8 @@ export default function Header({ inView }) {
         sx={{
           backgroundColor: inView ? "rgba(255,255,255,0.2)" : "black",
           transition: '200ms ease-out',
+          boxShadow: !inView && 'rgba(17, 12, 46, 0.75) 0px 5px 10px 0px'
+
         }}
       >
         <List role="menubar" row>
