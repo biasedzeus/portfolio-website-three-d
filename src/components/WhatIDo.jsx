@@ -1,18 +1,16 @@
 import React from "react";
-import { Box, Typography, Stack, IconButton, Button } from "@mui/material";
+import { Box, Typography, Stack, Button } from "@mui/material";
 import styled from "@emotion/styled";
 import { MdDesignServices } from "react-icons/md";
 import { RiLayout5Fill } from "react-icons/ri";
-import toast from 'react-hot-toast';
-import {motion} from 'framer-motion';
-
+import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const Section = styled(Box)({
-  //   backgroundColor: "white",
   marginTop: "1rem",
   color: "black",
   display: "flex",
-  width: "60%",
+  width: "80%",
   margin: "0 auto",
   padding: "1rem",
   borderRadius: "1.4rem",
@@ -23,6 +21,7 @@ const Section = styled(Box)({
   alignItems: "center",
   flexWrap: "wrap",
   justifyContent: "space-around",
+  flexDirection:'row',
 });
 
 const ContentBox = styled(Stack)({
@@ -73,40 +72,37 @@ const MainText = styled(Typography)({
 const StyledIconButton = styled(Button)({
   borderRadius: ".8rem",
   width: "70%",
-//   padding: ".5rem 1rem .5rem 1rem",
   fontSize: "1rem",
   fontWeight: "700",
   color: "white",
-  
 });
 
 const WhatIDo = () => {
-
-const handleOnClick = () =>{
-    toast.success("Coming Soon",{
-        duration:5000,
-        position: "bottom-left",
-    })
-}
+  const handleOnClick = () => {
+    toast.success("Coming Soon", {
+      duration: 5000,
+      position: "bottom-left",
+    });
+  };
 
   return (
-    <>
+    <div>
       <Title>
         What I do ? <MainText variant="span">Glad You asked</MainText>
       </Title>
       <Section>
         <ContentBox
-         component={motion.div}
-         initial={{ opacity: 0, translateY: -100 }}
-         whileInView={{ opacity: 1, translateY: 0 }}
-         transition={{
-           duration: .5,
-           delay: 0.2,
-           type: "spring",
-           stiffness: "200",
-         }}
-         viewport={{ once: true }}
-    
+          component={motion.div}
+          initial={{ opacity: 0, translateY: -50 }}
+          whileInView={{ opacity: 1, translateY: 0 }}
+          transition={{
+            duration: 0.2,
+            delay: 0.2,
+            type: "spring",
+            stiffness:200,
+
+          }}
+          viewport={{ once: true }}
           sx={{
             minWidth: {
               xs: "250px",
@@ -119,23 +115,21 @@ const handleOnClick = () =>{
           <Typography>
             I value simple content structure and thoughtful interactions.
           </Typography>
-          <StyledIconButton
-           onClick={handleOnClick}
-           className="styledIconBtn">
+          <StyledIconButton onClick={handleOnClick} className="styledIconBtn">
             View Designs
           </StyledIconButton>
         </ContentBox>
         <ContentBox
-         component={motion.div}
-         initial={{ opacity: 0, translateY: -100 }}
-         whileInView={{ opacity: 1, translateY: 0 }}
-         transition={{
-           duration: .5,
-           delay: 0.4,
-           type: "spring",
-           stiffness: "200",
-         }}
-         viewport={{ once: true }}
+          component={motion.div}
+          initial={{ opacity: 0, translateY: -50 }}
+          whileInView={{ opacity: 1, translateY: 0 }}
+          transition={{
+            duration: 0.2,
+            delay: 0.4,
+            type: "spring",
+            stiffness:200,
+          }}
+          viewport={{ once: true }}
           sx={{
             minWidth: {
               xs: "250px",
@@ -143,17 +137,13 @@ const handleOnClick = () =>{
           }}
         >
           <RiLayout5Fill className="contentBoxLogo" />
-          <Typography>
-            I value simple content structure and thoughtful interactions.
-          </Typography>
-          <StyledIconButton 
-           onClick={handleOnClick}
-          className="styledIconBtn">
+          <Typography>Quality Designs with Quality Implementaion.</Typography>
+          <StyledIconButton onClick={handleOnClick} className="styledIconBtn">
             Projects
           </StyledIconButton>
         </ContentBox>
       </Section>
-    </>
+    </div>
   );
 };
 

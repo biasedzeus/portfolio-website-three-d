@@ -1,15 +1,12 @@
-import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import image from "../assets/messenger.png";
 import { VscGithub } from "react-icons/vsc";
 import { Link } from "@mui/material";
 import styled from "@emotion/styled";
-import defaultImg from "../assets/defaultProject.gif";
+import defaultImg from "../assets/textformatanalyzer.webp";
 import toast from "react-hot-toast";
 
 const toastOptions = {
@@ -38,14 +35,15 @@ export default function ProjectCard({ project }) {
 
   return (
     <Card sx={{ maxWidth: 340 }}>
-      <Link href={project.site_URL ? project.site_URL : '#'}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="200"
-        image={project.imgURL || defaultImg}
+      <Link href={project.site_URL ? project.site_URL : "#"}>
+        <CardMedia
+          component="img"
+          alt={project.title}
+          height="200"
+          image={project.imgURL || defaultImg}
+          className="project-card-image"
         />
-        </Link>
+      </Link>
       <CardContent
         sx={{
           backgroudColor: "red",
@@ -80,8 +78,9 @@ export default function ProjectCard({ project }) {
             onClick={() => {
               !project.site_URL &&
                 toast.success(
-                  "Due to devloper mode, API not accessible on production mode.Check out the source code on github."
-                ,toastOptions);
+                  "Due to devloper mode, API not accessible on production mode.Check out the source code on github.",
+                  toastOptions
+                );
             }}
             color="#202020"
           >

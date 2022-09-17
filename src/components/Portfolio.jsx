@@ -1,6 +1,5 @@
-import { Card, Link, Paper, Typography } from "@mui/material";
+import {Link, Typography } from "@mui/material";
 import { Stack,Box } from "@mui/material";
-import React from "react";
 import ProjectCard from "./ProjectCard";
 import {motion} from 'framer-motion';
 import {portfolioProjects} from '../data/portfolioProjects'
@@ -10,7 +9,7 @@ const Portfolio = () => {
   return (
     <Box
     component={motion.div}
-    initial={{ opacity: 0, translateY: -100 }}
+    initial={{ opacity: 0, translateY: -10 }}
     whileInView={{ opacity: 1, translateY: 0 }}
     transition={{
       duration: 1.5,
@@ -18,7 +17,8 @@ const Portfolio = () => {
       type: "spring",
       stiffness: "200",
     }}
-    viewport={{ once: false }} id="projects" paddingTop="4rem">
+    viewport={{ once: true }}
+     id="projects" paddingTop="4rem">
 
       <Typography  fontFamily={"Lobster"} fontWeight="300" fontSize="3rem" textAlign="center" p={2} >My Recent Projects</Typography>
       <Typography   

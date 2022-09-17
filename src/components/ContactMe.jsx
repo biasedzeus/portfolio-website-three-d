@@ -9,7 +9,7 @@ const ContactMeContainer = styled(Stack)({
   marginTop: "1rem",
   color: "black",
   display: "flex",
-  width: "90%",
+  width: "80%",
   margin: "0 auto",
   padding: "1rem",
   borderRadius: "1.4rem",
@@ -50,7 +50,7 @@ const ContactMe = () => {
     const [message,setMessage] = useState("");
 
   return (
-    <Stack>
+    <Stack >
       <Typography fontSize="1.5rem" fontWeight="700" textAlign="center" p={3}>
         Have any Query ?<Typography fontSize="1.5rem" fontFamily="Poppins" fontWeight="700" component="span">
             Ask Me
