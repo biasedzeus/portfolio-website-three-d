@@ -1,9 +1,8 @@
 import React from "react";
 import Projects from "./Projects";
-import { Link } from "react-router-dom";
 import { GoLogoGithub } from "react-icons/go";
 import { SiAngellist, SiLinkedin, SiGmail } from "react-icons/si";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, Link } from "@mui/material";
 import styled from "@emotion/styled";
 import { AiFillPrinter } from "react-icons/ai";
 import Education from './Education';
@@ -11,6 +10,20 @@ import AboutMe from "./AboutMe";
 import ContactMe from "./ContactMe";
 import { motion } from "framer-motion";
 import resumepdf from '../assets/resumefrontend.pdf'
+
+
+const StyledLink = styled(Link)({
+  // color: "white",
+  textDecoration: "none",
+  cursor: "pointer",
+  padding: ".3rem",
+
+  ":hover": {
+  
+    borderRadius: "10px",
+    filter: "drop-shadow(0 0 1rem white)",
+  },
+});
 
 const Resume = () => {
   const ResDownButton = styled(Button)({
@@ -59,19 +72,19 @@ const Resume = () => {
         </header>
         <ul>
           <li>
-            <Link className="resume-link" to="/">
+            <StyledLink className="resume-link" target="_blank" rel="noopener" href="https://github.com/biasedzeus">
               <GoLogoGithub />
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link className="resume-link" to="/">
+            <StyledLink className="resume-link" target="_blank" rel="noopener" href="https://angel.co/u/bhanu-pratap-singh-chauhan-2">
               <SiAngellist />
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link className="resume-link" to="/">
+            <StyledLink className="resume-link" target="_blank" rel="noopener" href="https://in.linkedin.com/">
               <SiLinkedin />
-            </Link>
+            </StyledLink>
           </li>
         </ul>
       </nav>

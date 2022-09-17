@@ -9,7 +9,7 @@ const Portfolio = () => {
   return (
     <Box
     component={motion.div}
-    initial={{ opacity: 0, translateY: -10 }}
+    initial={{ opacity: 0, translateY: -100 }}
     whileInView={{ opacity: 1, translateY: 0 }}
     transition={{
       duration: 1.5,

@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, ListItemText, Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/material";
-import { List, ListItem, ListItemButton } from "@mui/joy";
+import { List, ListItem,} from "@mui/joy";
 import { HiOutlineMail } from "react-icons/hi";
 import styled from "@emotion/styled";
-import { SiAngellist, SiLinkedin, SiGmail } from "react-icons/si";
+import { SiAngellist, SiLinkedin, } from "react-icons/si";
 import { FaDev } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link as RLink } from "react-router-dom";
