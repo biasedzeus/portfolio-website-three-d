@@ -30,16 +30,17 @@ export default function Header({ inView }) {
       initial={{ opacity: 0, translateY: 100, }}
       whileInView={{ opacity: 1, translateY: 0,}}
       transition={{
-        duration: 1.5,
-        delay: 0.4,
+        duration: 1,
+        delay: 0.5,
         type: "spring",
-        stiffness: "200",
+        stiffness: "100",
       }}
       viewport={{ once: false }}
         
         aria-label="My site"
         sx={{
           backgroundColor: inView ? "rgba(255,255,255,0.2)" : "black",
+          transition: '200ms ease-out',
         }}
       >
         <List role="menubar" row>
