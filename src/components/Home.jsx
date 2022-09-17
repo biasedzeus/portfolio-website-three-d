@@ -1,12 +1,9 @@
-import React from "react";
-import { Box, Skeleton } from "@mui/material";
+import { Box, Stack} from "@mui/material";
 import HomePage from "./HomePage";
 import HeroSection from "./HeroSection";
-// import WhatIDo from "./WhatIDo";
-// import InfinteLogos from "./InfinteLogos";
-// import Portfolio from "./Portfolio";
-import { InView } from "react-intersection-observer";
 import { lazy, Suspense } from "react";
+import LoadingSkeleton from "./LoadingSkeleton";
+import ContactMe from "./ContactMe";
 
 // lazy imports
 const WhatIDo = lazy(() => import("./WhatIDo"));
@@ -26,17 +23,25 @@ function Home({ iref }) {
         <HomePage />
         <HeroSection intersecRef={iref} />
       </Box>
-      <Suspense
-        fallback={
-          <Box sx={{ pt: 0.5 }}>
-            <Skeleton />
-            <Skeleton width="60%" />
-          </Box>
-        }
-      >
+      <Suspense fallback={ <LoadingSkeleton/>}> 
+         <Box width="100%">
            <InfinteLogos />
-      <WhatIDo />
-      <Portfolio />
+           <WhatIDo />
+           <Portfolio />
+           
+            <Stack sx={{
+                margin:'0 auto',
+                width:{
+                    xs:'90%',
+                    sm:'70%',
+                    lg:'50%',
+                }
+            }} >
+
+           <ContactMe/>
+            </Stack>
+           
+      </Box>
       </Suspense>
      
     </>

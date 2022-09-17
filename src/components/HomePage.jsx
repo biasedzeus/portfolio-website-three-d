@@ -78,22 +78,12 @@ function Spheres({ number = 15 }) {
   );
 }
 
-function HtmlContent() {
-  return (
-    <mesh position={[0, 3, -3]}>
-      <Html>
-        <div className="name-holder noselect">Bhanu Singh</div>
-      </Html>
-    </mesh>
-  );
-}
-
 const HomePage = ({inView,ref}) => {
 
 
   return (
     <Box 
-      sx={{ width: "100vw", height: "100vh", overflowX:'hidden' }}
+      sx={{ width: "100vw", height: "100vh",  }}
       component={motion.div}
       initial={{ opacity: 0, translateY: 100 }}
       whileInView={{ opacity: 1, translateY: 0 }}
@@ -150,7 +140,6 @@ const HomePage = ({inView,ref}) => {
               <shadowMaterial attach="material" transparent opacity={0.4} />
             </mesh>
             <Spheres />
-            {/* <HtmlContent/> */}
           </group>
         </PresentationControls>
       </Canvas>
