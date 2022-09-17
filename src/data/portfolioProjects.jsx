@@ -1,17 +1,17 @@
-import messengerImg from "../assets/messenger.png";
-import youtubemui from "../assets/youtube_mui.png";
-import portfolio from "../assets/portfolio.png";
-import shoppingCart from "../assets/shoppingCart.png";
-import textFormat from "../assets/textformatanalyzer.png";
-import newsJournal from "../assets/newsJournal.png";
-import userlistApi from "../assets/userlistapi.png";
+import messengerImg from "../assets/messenger.webp";
+import youtubemui from "../assets/youtube_mui.webp";
+import portfolio from "../assets/portfolio.webp";
+import shoppingCart from "../assets/shoppingCart.webp";
+import textFormat from "../assets/textformatanalyzer.webp";
+import newsJournal from "../assets/newsJournal.webp";
+import userlistApi from "../assets/userlistapi.webp";
 
 export const portfolioProjects = [
   {
     id: "ghasdfagsd",
     order: 1,
     title: "Messenger Firebase",
-    site_URL: "messenger-firebase.netlify.app/login",
+    site_URL: "https://messenger-firebase.netlify.app/login",
     github_URL: "https://github.com/biasedzeus/messenger-react-firebase",
     imgURL: messengerImg,
     features: [
