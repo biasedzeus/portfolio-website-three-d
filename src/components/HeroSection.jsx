@@ -5,6 +5,8 @@ import { SiLinkedin } from "react-icons/si";
 import { DiGithubFull } from "react-icons/di";
 import { motion } from "framer-motion";
 import { Link as RouterLink } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
+
 
 const StyledBox = styled(Stack)({
   width: "fit-content",
@@ -26,25 +28,6 @@ const DevTitle = styled(Typography)({
   textShadow: "1px 2px 10px rgba(10, 10, 10, 0.97)",
 });
 
-const ResumeButton = styled(Link)({
-  color: "white",
-  backgroundColor: "rgba(255,255,255,0.2)",
-  marginTop: "1rem",
-  padding: "1rem 2rem 1rem 2rem",
-  borderRadius: "2.5rem",
-  boxShadow: "1px 2px 10px rgba(24, 24, 24, 0.1)",
-  textDecoration: "none",
-  cursor: "pointer",
-
-  ":hover": {
-    // fill: "ButtonHighlight",
-    backgroundColor: "white",
-    color: "black",
-    boxShadow: "1px 2px 10px rgba(10, 10, 10, 0.97) ",
-    transition: " 200ms ease-in-out",
-  },
-});
-
 const StyledDivider = styled(Divider)({
   color: "white",
   backgroundColor: "rgba(255,255,255,0.2)",
@@ -55,6 +38,7 @@ const StyledLink = styled(Link)({
   color: "white",
 });
 const HeroSection = ({ intersecRef }) => {
+
   return (
     <Stack
       sx={{
@@ -111,7 +95,7 @@ const HeroSection = ({ intersecRef }) => {
           variant="h2"
           component="h2"
         >
-          Web Devloper
+          Web Developer
         </DevTitle>
         <Stack
           direction="row"
@@ -121,20 +105,8 @@ const HeroSection = ({ intersecRef }) => {
         >
           {" "}
           <RouterLink className="home-resume-download-btn" to="/resume">
-            <ResumeButton
-              sx={{
-                fontSize: {
-                  xs: "1rem",
-                  sm: "1.5rem",
-                  md: "1.5rem",
-                  lg: "1.5rem",
-                  xl: "3rem",
-                },
-            
-              }}
-            >
-              Resume
-            </ResumeButton>
+           
+            Resume
           </RouterLink>
           <StyledDivider
             light={true}
