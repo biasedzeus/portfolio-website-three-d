@@ -19,10 +19,12 @@ import { motion } from "framer-motion";
 const InfinteLogos = () => {
   return (
     <Box
-      sx={{
-        width: "100vw",
-        overflow: "hidden",
-      }}
+    sx={{
+      width:'100%',
+      overflow: "hidden",
+      marginBottom:'5rem',
+      marginTop:'2rem',
+    }}
     >
       <Typography
         textAlign="center"
@@ -41,7 +43,13 @@ const InfinteLogos = () => {
           Glad You Asked
         </Typography>
       </Typography>
-      <Box className="slider">
+      <Box sx={{
+        width: {
+          xs:'100%',
+         
+        },
+        overflow: "hidden",
+      }} className="slider">
         <Stack flexDirection="row" className="slide-track">
           <Box className="slide">
             <TiHtml5 className="infintelogo" />
