@@ -121,7 +121,7 @@ const HeroSection = ({ intersecRef }) => {
           >
             <DiGithubFull className="herosection-logo" />
           </StyledLink>
-          <StyledLink target="_blank" rel="noopener" href="https://linkedin.in">
+          <StyledLink target="_blank" rel="noopener" href="https://linkedin.com/in/bhanu-singh-ab09a0250">
             <SiLinkedin className="herosection-logo" />
           </StyledLink>
         </Stack>
