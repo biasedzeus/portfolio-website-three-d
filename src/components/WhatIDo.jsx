@@ -1,150 +1,98 @@
 import React from "react";
-import { Box, Typography, Stack, Button } from "@mui/material";
-import styled from "@emotion/styled";
-import { MdDesignServices } from "react-icons/md";
-import { RiLayout5Fill } from "react-icons/ri";
-import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 
-const Section = styled(Box)({
-  marginTop: "1rem",
-  color: "black",
-  display: "flex",
-  width: "80%",
-  margin: "0 auto",
-  padding: "1rem",
-  borderRadius: "1.4rem",
-  marginBottom: "2rem",
-  flexDirection: "row",
-  minHeight: "435px",
-  textOverflow: "ellipsis",
-  alignItems: "center",
-  flexWrap: "wrap",
-  justifyContent: "space-around",
-  flexDirection:'row',
-});
-
-const ContentBox = styled(Stack)({
-  backgroundColor: "white",
-  borderRadius: "1rem",
-  height: "300px",
-  maxWidth: "200px",
-  flexDirection: "column",
-  position: "relative",
-  padding: "1rem",
-  paddingTop: "5rem",
-  margin: "2rem",
-  justifyContent: "space-evenly",
-  textAlign: "center",
-  minWidth: {
-    xs: "250px",
-    sm: "250px",
-    md: "250px",
+const EXPERIMENTS = [
+  {
+    title: "Volumetric Mist",
+    desc: "A WebGL exploration of raymarching and mountain noise textures.",
+    icon: null,
+    span: "md:col-span-2 md:row-span-2",
+    accent: true,
+    progress: 33,
   },
-  alignItems: "center",
-  boxShadow: "rgb(38, 57, 77) 0px 20px 30px -10px",
-  boxShadow:
-    "rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px",
-});
-
-const Title = styled(Typography)({
-  textAlign: "center",
-  fontSize: "3rem",
-  fontFamily: "Lobster",
-});
-
-const MainText = styled(Typography)({
-  fontSize: {
-    xs: "rem",
-    sm: "3rem",
+  {
+    title: "Terrain Morph",
+    desc: null,
+    icon: "landscape",
+    span: "",
+    accent: false,
   },
-  fontFamily: "Poppins",
-  fontWeight: "700",
-  background: " #40E0D0" /* fallback for old browsers */,
-  background:
-    "-webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0)" /* Chrome 10-25, Safari 5.1-6 */,
-  background:
-    "linear-gradient(to left, #FF0080, #FF8C00, #40E0D0)" /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */,
-  backgroundClip: "text",
-  color: "transparent",
-});
+  {
+    title: "Snow Shaders",
+    desc: null,
+    icon: "ac_unit",
+    span: "",
+    accent: false,
+  },
+  {
+    title: "Summit Type",
+    desc: "Interactive kinetic typography responding to altitude data.",
+    icon: null,
+    span: "md:col-span-2",
+    accent: false,
+  },
+];
 
-const StyledIconButton = styled(Button)({
-  borderRadius: ".8rem",
-  width: "70%",
-  fontSize: "1rem",
-  fontWeight: "700",
-  color: "white",
-});
-
-const WhatIDo = () => {
-  const handleOnClick = () => {
-    toast.success("Coming Soon", {
-      duration: 5000,
-      position: "bottom-left",
-    });
-  };
-
+function ExperimentCard({ item, index }) {
   return (
-    <div>
-      <Title>
-        What I do ? <MainText variant="span">Glad You asked</MainText>
-      </Title>
-      <Section>
-        <ContentBox
-          component={motion.div}
-          initial={{ opacity: 0, translateY: -50 }}
-          whileInView={{ opacity: 1, translateY: 0 }}
-          transition={{
-            duration: 0.2,
-            delay: 0.2,
-            type: "spring",
-            stiffness:200,
-
-          }}
-          viewport={{ once: true }}
-          sx={{
-            minWidth: {
-              xs: "250px",
-              sm: "250px",
-              md: "250px",
-            },
-          }}
-        >
-          <MdDesignServices className="contentBoxLogo" />
-          <Typography>
-            I value simple content structure and thoughtful interactions.
-          </Typography>
-          <StyledIconButton onClick={handleOnClick} className="styledIconBtn">
-            View Designs
-          </StyledIconButton>
-        </ContentBox>
-        <ContentBox
-          component={motion.div}
-          initial={{ opacity: 0, translateY: -50 }}
-          whileInView={{ opacity: 1, translateY: 0 }}
-          transition={{
-            duration: 0.2,
-            delay: 0.4,
-            type: "spring",
-            stiffness:200,
-          }}
-          viewport={{ once: true }}
-          sx={{
-            minWidth: {
-              xs: "250px",
-            },
-          }}
-        >
-          <RiLayout5Fill className="contentBoxLogo" />
-          <Typography>Quality Designs with Quality Implementaion.</Typography>
-          <StyledIconButton onClick={handleOnClick} className="styledIconBtn">
-            Projects
-          </StyledIconButton>
-        </ContentBox>
-      </Section>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className={`glass-panel p-8 md:p-10 hover:bg-surface-container-high transition-all group ${item.span} ${
+        item.accent ? "border-l-4 border-l-primary flex flex-col justify-between min-h-[300px] md:min-h-[450px]" : ""
+      }`}
+    >
+      {item.icon && (
+        <span className="material-symbols-outlined text-primary text-[48px] group-hover:scale-110 transition-transform">
+          {item.icon}
+        </span>
+      )}
+      <div>
+        <h4 className="font-serif text-headline-sm text-white uppercase italic font-bold mt-4 md:mt-6">
+          {item.title}
+        </h4>
+        {item.desc && (
+          <p className="text-on-surface-variant mt-3 md:mt-4 font-body text-body-md">
+            {item.desc}
+          </p>
+        )}
+      </div>
+      {item.progress != null && (
+        <div className="w-full h-1 bg-border-muted rounded-full overflow-hidden mt-6">
+          <div className="h-full bg-primary" style={{ width: `${item.progress}%` }} />
+        </div>
+      )}
+    </motion.div>
   );
-};
+}
 
-export default WhatIDo;
+export default function WhatIDo() {
+  return (
+    <section className="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-low" id="experiment">
+      <div className="max-w-[1200px] mx-auto px-5 md:px-gutter">
+        <div className="mb-12 md:mb-16">
+          <motion.h2
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="font-serif text-headline-lg uppercase italic font-black"
+          >
+            Laboratory
+          </motion.h2>
+          <p className="font-body text-body-lg text-on-surface-variant max-w-lg mt-4">
+            R&amp;D experiments in shader mathematics and interactive topography.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+          {EXPERIMENTS.map((item, i) => (
+            <ExperimentCard key={item.title} item={item} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

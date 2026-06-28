@@ -1,143 +1,48 @@
 import React from "react";
-import { Link, Typography } from "@mui/material";
-import { Box, Stack } from "@mui/material";
-import { List, ListItem,} from "@mui/joy";
-import { HiOutlineMail } from "react-icons/hi";
-import styled from "@emotion/styled";
-import { SiAngellist, SiLinkedin, } from "react-icons/si";
-import { FaDev } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Link as RLink } from "react-router-dom";
 
-const Footer = () => {
-  const StyledLink = styled(Link)({
-    color: "white",
-    textDecoration: "none",
-    cursor: "pointer",
-    padding: ".3rem",
+const SOCIAL_LINKS = [
+  { name: "GitHub", href: "https://github.com/biasedzeus" },
+  { name: "LinkedIn", href: "https://linkedin.com/in/bhanu-singh-ab09a0250" },
+  { name: "Twitter", href: "#" },
+];
 
-    ":hover": {
-      color: "black",
-      backgroundColor: "white",
-      borderRadius: "10px",
-      filter: "drop-shadow(0 0 1rem white)",
-    },
-  });
-
+export default function Footer() {
   return (
-    <Box className="footer">
-      <Box
-        component={motion.div}
-        initial={{ opacity: 0, translateY: 100 }}
-        whileInView={{ opacity: 1, translateY: 0 }}
-        transition={{
-          duration: 0.1,
-          type: "spring",
-          stiffness: "200",
-        }}
-        viewport={{ once: false }}
-        width="100%"
-        className="container"
-      >
-        <Stack
-          sx={{
-            flexDirection: {
-              xs: "column",
-              sm: "row",
-              lg: "row",
-            },
-          }}
-          flexDirection="row"
-          alignItems="center"
-          justifyContent="space-evenly"
-          className="row justify-content-center"
+    <footer className="w-full bg-surface-container-lowest border-t border-border-muted pt-section-gap-mobile md:pt-section-gap-desktop">
+      <div className="max-w-7xl mx-auto px-5 md:px-gutter py-12 flex flex-col items-center text-center">
+        {/* Giant ghost text */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.05 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5 }}
+          className="font-serif font-black italic select-none pointer-events-none mb-12 md:mb-16 text-on-surface leading-none uppercase"
+          style={{ fontSize: "clamp(60px, 18vw, 300px)" }}
         >
-          <Stack className="col-4 offset-1 col-sm-2">
-            <Typography
-              sx={{ textAlign: { xs: "center" } }}
-              fontFamily="Poppins"
-              fontWeight="600"
-              fontSize="1.3rem"
-            >
-              Links
-            </Typography>
-            <List
-              sx={{
-                flexDirection: {
-                  xs: "row",
-                  sm: "column",
-                },
-              }}
-            >
-              <ListItem>
-                <StyledLink href="#">Home</StyledLink>
-              </ListItem>
-              <ListItem>
-                <StyledLink href="#projects">Projects</StyledLink>
-              </ListItem>
-              <ListItem>
-                <StyledLink>
-                  <RLink className="footer-router-link" to="/resume">Resume</RLink>
-                </StyledLink>
-              </ListItem>
-              <ListItem>
-                <StyledLink to="#contactme">Contact Me</StyledLink>
-              </ListItem>
-            </List>
-          </Stack>
-          <Stack className="col-7 col-sm-5">
-            <h5>Our Address</h5>
-            <address>
-              121,Somewhere where Road
-              <br />
-              Is This The Road, Where
-              <br />
-              GO WHERE
-              <br />
-              <Stack flexDirection="row" alignItems="center" gap={1}>
-                <HiOutlineMail />
-                <StyledLink href="mailto:bhanu.singh1078@gmail.com">
-                  bhanu.singh1078@gmail.com
-                </StyledLink>
-              </Stack>
-            </address>
-          </Stack>
-          <Box className="col-12 col-sm-4 align-self-center">
-            <Stack flexDirection="row" gap={2} fontSize="3rem">
-              <ListItem>
-                <StyledLink
-                  target="_new"
-                  href="https://angel.co/u/bhanu-pratap-singh-chauhan-2"
-                >
-                  <SiAngellist />
-                </StyledLink>
-              </ListItem>
-              <ListItem>
-                <StyledLink target="_new" href="https://in.linkedin.com/">
-                  <SiLinkedin />
-                </StyledLink>
-              </ListItem>
-              <ListItem>
-                <StyledLink target="_new" href="https://dev.to/biasedzeus">
-                  <FaDev />{" "}
-                </StyledLink>
-              </ListItem>
-            </Stack>
-          </Box>
-        </Stack>
+          HIMALAYA
+        </motion.div>
 
-        <Typography
-          fontWeight="light"
-          fontFamily="Poppins"
-          component="h1"
-          textAlign="center"
-          marginTop="10px"
-        >
-          <p> made with ❤️ ©biasedzeus </p>
-        </Typography>
-      </Box>
-    </Box>
+        {/* Bottom bar */}
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12 border-t border-border-muted pt-12 md:pt-16">
+          <p className="font-label-md text-on-surface-muted uppercase tracking-[0.1em] text-label-md text-center md:text-left">
+            © {new Date().getFullYear()} CELESTIAL ARCHITECT — BORN IN THE MOUNTAINS
+          </p>
+          <div className="flex gap-8 md:gap-10">
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-label-md uppercase text-on-surface-muted hover:text-primary transition-all duration-700 hover:tracking-[0.2em] text-label-md"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
   );
-};
-
-export default Footer;
+}

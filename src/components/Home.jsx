@@ -1,50 +1,33 @@
-import { Box, Stack} from "@mui/material";
+import React, { lazy, Suspense } from "react";
 import HomePage from "./HomePage";
 import HeroSection from "./HeroSection";
-import { lazy, Suspense } from "react";
 import LoadingSkeleton from "./LoadingSkeleton";
-import ContactMe from "./ContactMe";
 
-// lazy imports
+const Marquee = lazy(() => import("./InfinteLogos"));
+const Projects = lazy(() => import("./Projects"));
+const AboutMe = lazy(() => import("./AboutMe"));
 const WhatIDo = lazy(() => import("./WhatIDo"));
-const InfinteLogos = lazy(() => import("./InfinteLogos"));
-const Portfolio = lazy(() => import("./Portfolio"));
+const ContactMe = lazy(() => import("./ContactMe"));
 
-function Home({ iref }) {
+export default function Home() {
   return (
     <>
-      <Box
-        sx={{
-          height: "100vh",
-          width: "100vw",
-          marginBottom: "3rem",
-        }}
-      >
+      {/* Hero: 3D canvas + text overlay */}
+      <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <HomePage />
-        <HeroSection intersecRef={iref} />
-      </Box>
-      <Suspense fallback={ <LoadingSkeleton/>}> 
-         <Box width="100%">
-           <InfinteLogos />
-           <WhatIDo />
-           <Portfolio />
-           
-            <Stack sx={{
-                margin:'0 auto',
-                width:{
-                    xs:'90%',
-                    sm:'70%',
-                    lg:'50%',
-                }
-            }} >
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/40 via-background/20 to-background pointer-events-none" />
+        <HeroSection />
+      </header>
 
-           <ContactMe/>
-            </Stack>
-           
-      </Box>
+      {/* Sections */}
+      <Suspense fallback={<LoadingSkeleton />}>
+        <Projects />
+        <Marquee />
+        <AboutMe />
+        <WhatIDo />
+        <ContactMe />
       </Suspense>
-     
     </>
   );
 }
-export default Home;

@@ -1,140 +1,42 @@
-import styled from "@emotion/styled";
-import { Box, Stack, Tabs, Typography } from "@mui/material";
-import { textAlign } from "@mui/system";
-import React, { useState, useEffect } from "react";
-import { FaAngleDoubleRight } from "react-icons/fa";
-import { portfolioProjects } from "../data/portfolioProjects";
-
-import Tab from "@mui/material/Tab";
-// import TabPanel from "@mui/joy/TabPanel";
-import ResumeProjectCard from "./ResumeProjectCard";
+import React from "react";
 import { motion } from "framer-motion";
-// ATTENTION!!!!!!!!!!
-// I SWITCHED TO PERMANENT DOMAIN
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+import { portfolioProjects } from "../data/portfolioProjects";
+import ProjectCard from "./ProjectCard";
 
+export default function Projects() {
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
+    <section
+      className="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-lowest overflow-hidden"
+      id="work"
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
-
-function Projects() {
-  const [loading, setLoading] = useState(true);
-  const [jobs, setJobs] = useState([]);
-  const [value, setValue] = useState(1);
-  // console.log(portfolioProjects);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const Section = styled(Box)({
-    backgroundColor: "white",
-    marginTop: "1rem",
-    color: "black",
-    display: "flex",
-    width: "90%",
-    margin: "0 auto",
-    padding: "1rem",
-    borderRadius: "1.4rem",
-    marginBottom: "2rem",
-    flexDirection: "column",
-    minHeight: "435px",
-    textOverflow: "ellipsis",
-  });
-
-  const Title = styled(Typography)({
-    textAlign: "center",
-  });
-
-  const ProjectsContainer = styled(Stack)({
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "3rem",
-  });
-
-  const BtnContainer = styled(Stack)({
-    flexDirection: "column",
-    gap: "3rem",
-  });
-
-  useEffect(() => {
-    setJobs(portfolioProjects);
-  }, []);
-
-  if (!jobs) return <div>Loading.......</div>;
-
-  // console.log("jobs", jobs);
-
-  return (
-    <Section>
-      <Title>
-        <h1 className="bluegrad">Projects</h1>
-        <Box
-          sx={{
-            width: "100%",
-            typography: "body1",
-            display: "flex",
-            flexDirection: {
-              xs: "column",
-            },
-          }}
+      {/* Section header */}
+      <div className="px-5 md:px-gutter mb-12 md:mb-16 flex items-baseline justify-between max-w-[1200px] mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="font-serif text-headline-lg uppercase italic font-black"
         >
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Tabs
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-              }}
-              onChange={handleChange}
-              textColor="red"
-              // centered
-              aria-label="projects"
-              value={value}
-              variant="scrollable"
-              scrollButtons
-              allowScrollButtonsMobile
-              selectionFollowsFocus
-            >
-              {jobs &&
-                jobs.map((project, index) => {
-                  return <Tab label={project.title} {...a11yProps(index)} />;
-                })}
-            </Tabs>
-          </Box>
-          {jobs &&
-            jobs.map((project, index) => {
-              return (
-                <TabPanel value={value} index={index}>
-                  <ResumeProjectCard project={project} />
-                </TabPanel>
-              );
-            })}
-        </Box>
-        <div className="underline"></div>
-      </Title>
-      <ProjectsContainer className="projects-contdainer"></ProjectsContainer>
-    </Section>
+          Selected Works
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="font-label-md uppercase tracking-[0.3em] text-outline text-label-md"
+        >
+          {String(portfolioProjects.length).padStart(2, "0")} / 12
+        </motion.p>
+      </div>
+
+      {/* Horizontal scroll cards */}
+      <div className="horizontal-scroll-container px-[5vw] md:px-[10vw] gap-8 md:gap-12 pb-8 md:pb-12 cursor-grab active:cursor-grabbing">
+        {portfolioProjects.map((project, i) => (
+          <ProjectCard key={project.id + i} project={project} index={i} />
+        ))}
+      </div>
+    </section>
   );
 }
-
-export default Projects;

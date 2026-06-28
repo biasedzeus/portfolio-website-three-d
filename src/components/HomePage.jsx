@@ -1,150 +1,60 @@
-import ReactDOM from "react-dom";
-import React, { useRef, useMemo,useEffect } from "react";
+import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import MountainTerrain from "./MountainTerrain";
+import SnowParticles from "./SnowParticles";
+import TwilightSky from "./TwilightSky";
 
-import {
-  softShadows,
-  OrbitControls,
-  Ring,
-  Torus,
-  Circle,
-  MeshWobbleMaterial,
-  PresentationControls,
-  Html,
-  Text,
-} from "@react-three/drei";
-import { Container } from "@mui/system";
-import { Box } from "@mui/joy";
-import {motion} from 'framer-motion';
-
-// Inject soft shadow shader
-softShadows();
-
-const easeInOutCubic = (t) =>
-  t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-function Sphere({ position = [0, 0, 0], ...props }) {
-  const ref = useRef();
-  const factor = useMemo(() => 0.5 + Math.random(), []);
+function CameraRig() {
   useFrame((state) => {
-    const t = easeInOutCubic(
-      (1 + Math.sin(state.clock.getElapsedTime() * factor)) / 2
-    );
-    ref.current.position.y = position[1] + t * 4;
-    ref.current.scale.y = 1 + t * 0.01;
+    const t = state.clock.elapsedTime;
+    // Slow forward glide toward mountains
+    state.camera.position.z = 18 - t * 0.12;
+    state.camera.position.y = 4 + Math.sin(t * 0.15) * 0.4;
+    state.camera.position.x = Math.sin(t * 0.08) * 0.6;
+    state.camera.lookAt(0, 2, -10);
   });
-  return (
-    <mesh ref={ref} position={position} {...props} castShadow receiveShadow>
-      <sphereBufferGeometry attach="geometry" args={[0.5, 32, 32]} />
-      <meshStandardMaterial
-        attach="material"
-        color="lightblue"
-        roughness={0}
-        metalness={0.1}
-      />
-      {/* <MeshWobbleMaterial
-          attach="material"
-          color="lightblue"
-          roughness={0}
-          metalness={0.1}
-          factor={1}
-          speed={10}
-        /> */}
-    </mesh>
-  );
+  return null;
 }
 
-function Spheres({ number = 15 }) {
-  const ref = useRef();
-  const positions = useMemo(
-    () =>
-      [...new Array(number)].map(() => [
-        3 - Math.random() * 6,
-        Math.random() * 4,
-        3 - Math.random() * 6,
-      ]),
-    []
-  );
-  useFrame(
-    (state) =>
-      (ref.current.rotation.y =
-        Math.sin(state.clock.getElapsedTime() / 10) * Math.PI)
-  );
+export default function HomePage() {
   return (
-    <group ref={ref}>
-      {positions.map((pos, index) => (
-        <Sphere key={index} position={pos} />
-      ))}
-    </group>
-  );
-}
-
-const HomePage = ({inView,ref}) => {
-
-
-  return (
-    <Box 
-      sx={{ width: "100vw", height: "100vh",  }}
-      component={motion.div}
-      initial={{ opacity: 0, translateY: 100 }}
-      whileInView={{ opacity: 1, translateY: 0 }}
-      transition={{
-        duration: 1.5,
-        delay: 0.4,
-        type: "spring",
-        stiffness: "200",
-      }}
-      viewport={{ once: false }}
-      
-      >
+    <div className="absolute inset-0 w-full h-full z-0">
       <Canvas
-      
-        className="canvas-flexbox"
-        shadows
-        camera={{ position: [-5, 2, 10], fov: 60 }}
+        camera={{ position: [0, 4, 18], fov: 55 }}
+        dpr={[1, 1.5]}
+        gl={{ antialias: true }}
+        className="w-full h-full"
       >
-        <fog attach="fog" args={["white", 0, 40]} />
-        {/* <OrbitControls /> */}
-        <ambientLight intensity={0.4} />
+        {/* Twilight atmospheric fog — warm purple haze */}
+        <fog attach="fog" args={["#4a3555", 15, 55]} />
+
+        {/* Gradient sky dome */}
+        <TwilightSky />
+
+        {/* Dawn lighting */}
+        <ambientLight intensity={0.25} color="#6655aa" />
         <directionalLight
-          castShadow
-          position={[2.5, 8, 5]}
-          intensity={1.5}
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-far={50}
-          shadow-camera-left={-10}
-          shadow-camera-right={10}
-          shadow-camera-top={10}
-          shadow-camera-bottom={-10}
+          position={[-8, 6, -12]}
+          intensity={1.2}
+          color="#ffaa55"
         />
-        <pointLight position={[-10, 0, -10]} color="blue" intensity={12.5} />
-        <pointLight position={[-10, 0, 10]} color="blue" intensity={12.5} />
-        <pointLight position={[0, -10, 0]} color="black" intensity={1.5} />
+        <directionalLight
+          position={[5, 8, 5]}
+          intensity={0.4}
+          color="#8888cc"
+        />
+        <pointLight position={[-12, 4, -8]} intensity={0.6} color="#ff8844" />
+        <pointLight position={[10, 2, -15]} intensity={0.3} color="#aa88dd" />
 
-        <PresentationControls
-          //
-          global
-          config={{ mass: 2, tension: 500 }}
-          snap={{ mass: 14, tension: 1500 }}
-          rotation={[0, 0.3, 0]}
-          polar={[-Math.PI / 3, Math.PI / 3]}
-          azimuth={[-Math.PI / 1.4, Math.PI / 2]}
-        >
-          <group position={[0, -3.5, 0]}>
-            <mesh
-              rotation={[-Math.PI / 2, 0, 0]}
-              position={[0, -0.5, 0]}
-              receiveShadow
-            >
-              <planeBufferGeometry attach="geometry" args={[100, 100]} />
-              <shadowMaterial attach="material" transparent opacity={0.4} />
-            </mesh>
-            <Spheres />
-          </group>
-        </PresentationControls>
+        {/* Camera slow-mo glide */}
+        <CameraRig />
+
+        {/* Procedural mountain terrain */}
+        <MountainTerrain />
+
+        {/* Falling snow */}
+        <SnowParticles />
       </Canvas>
-    </Box>
+    </div>
   );
-};
-
-export default HomePage;
+}

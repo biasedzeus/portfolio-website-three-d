@@ -1,75 +1,109 @@
-:root {
-  font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-html{
-  scroll-behavior: smooth;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* font-family: 'Poppins'; */
+@layer base {
+  body {
+    background-color: #131318;
+    color: #e4e1e8;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Hanken Grotesk', sans-serif;
+  }
 }
 
-#root {
-  width: inherit;
-  min-width: 100vw;
-  min-height: 100vh;
-  display: block;
-  /* height: 100vh; */
-  margin: 0;
-  padding: 0;
-  background: rgb(102, 21, 133);
-  background: linear-gradient(
-    180deg,
-    rgba(102, 21, 133, 1) 0%,
-    rgba(143, 73, 184, 1) 36%,
-    rgba(56, 39, 147, 1) 72%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  font-family: 'Poppins', sans-serif;
+.glass-panel {
+  backdrop-filter: blur(12px);
+  background: rgba(31, 31, 36, 0.4);
+  border: 1px solid rgba(144, 143, 161, 0.2);
+}
+
+.kinetic-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  color: transparent;
+  background: linear-gradient(to bottom, #c1c1ff, #5d5cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-item {
+  scroll-snap-align: center;
+  flex: 0 0 80vw;
+}
+
+@media (min-width: 768px) {
+  .scroll-item {
+    flex: 0 0 45vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scroll-item {
+    flex: 0 0 30vw;
+  }
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c1c1ff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+}
+
+.grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.03;
+  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuC68OIbPhWSouT_XSCqotg2L4lD4ebI6UM2cnTITO2S3vacfpuM8i4Wn8ArTYvgMt4eEcWy4HYAaN3Bj95aHTv6Yg0cExXcnvtNa3OQ5Hxsbpetrw3txfSD2D4qC_aM0niwFyJGYTWidUlBhTJJon0Zmexvzw8RtWKrio_IvEe6BwMTDCYO72YXfUoWfvw6VbQnUr_ull6MafLT1GrKpczt4eL7SjpR6Fzh3zDv1t4kcxRXXNxxCVMCXjhRYvi2u9eg19iy5qqKBBpW);
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hero-image-overlay {
+  background: linear-gradient(to bottom, rgba(19, 19, 24, 0.4) 0%, rgba(19, 19, 24, 1) 100%);
 }
 
 canvas {
   width: 100%;
   height: 100%;
+  display: block;
 }
 
-.link{
-color: white;
+/* Hide scrollbar for standard elements if needed */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-  /* width */
-body::-webkit-scrollbar {
-  width: 10px;
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
-/* Track */
-body::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-body::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-body::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-

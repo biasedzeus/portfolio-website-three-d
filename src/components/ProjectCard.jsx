@@ -1,101 +1,64 @@
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { VscGithub } from "react-icons/vsc";
-import { Link } from "@mui/material";
-import styled from "@emotion/styled";
-import defaultImg from "../assets/textformatanalyzer.webp";
-import toast from "react-hot-toast";
+import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
-const toastOptions = {
-  duration: 7000,
-  position: "bottom-center",
-};
+export default function ProjectCard({ project, index }) {
+  const cardRef = useRef(null);
+  const [transform, setTransform] = useState("");
 
-export default function ProjectCard({ project }) {
-  const StyledLink = styled(Link)({
-    backgroundColor: "#404040 !important",
-    color: "white",
-    padding: ".5rem",
-    textDecoration: "none",
-    borderRadius: "20px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    cursor: "pointer",
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const { left, top, width, height } = card.getBoundingClientRect();
+    const x = (e.clientX - left) / width;
+    const y = (e.clientY - top) / height;
+    setTransform(
+      `perspective(1000px) rotateY(${(x - 0.5) * 6}deg) rotateX(${(y - 0.5) * -6}deg) scale(1.02)`
+    );
+  };
 
-    ":hover": {
-      boxShadow: "1px 2px 10px rgba(10, 10, 10, 0.97) ",
-      transition: " 200ms ease-in-out",
-      backgroundColor: "red",
-    },
-  });
+  const handleMouseLeave = () => {
+    setTransform("perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)");
+  };
+
+  const techLabel = project.techUsed?.length
+    ? project.techUsed.join(" • ")
+    : "React";
 
   return (
-    <Card sx={{ maxWidth: 340 }}>
-      <Link href={project.site_URL ? project.site_URL : "#"}>
-        <CardMedia
-          component="img"
-          alt={project.title}
-          height="200"
-          image={project.imgURL || defaultImg}
-          className="project-card-image"
-        />
-      </Link>
-      <CardContent
-        sx={{
-          backgroudColor: "red",
-        }}
-      >
-        <Typography
-          fontFamily="Poppins"
-          fontWeight="700"
-          gutterBottom
-          variant="h5"
-          component="div"
-        >
+    <motion.article
+      ref={cardRef}
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, delay: index * 0.1 }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ transform }}
+      className="scroll-item group relative aspect-[16/10] overflow-hidden glass-panel rounded-xl cursor-pointer transition-transform duration-300"
+    >
+      {/* Image background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
+        style={{ backgroundImage: `url(${project.imgURL})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+      {/* Content */}
+      <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 z-10">
+        <span className="bg-primary text-on-primary px-4 py-1 rounded-full text-caption uppercase font-bold tracking-[0.2em] mb-3 inline-block">
+          {techLabel}
+        </span>
+        <h3 className="font-serif text-headline-lg-mobile text-white uppercase italic tracking-tighter">
           {project.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {project.description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        {project.site_URL && (
-          <StyledLink
-            target="_blank"
-            rel="noopener"
-            href={project.site_URL}
-            color="#202020"
-          >
-            Visit site
-          </StyledLink>
-        )}
-        {!project.site_URL && (
-          <StyledLink
-            onClick={() => {
-              !project.site_URL &&
-                toast.success(
-                  "Due to devloper mode, API not accessible on production mode.Check out the source code on github.",
-                  toastOptions
-                );
-            }}
-            color="#202020"
-          >
-            Visit site
-          </StyledLink>
-        )}
-        <StyledLink
-          target="_blank"
-          rel="noopener"
-          href={project.github_URL}
-          color="#202020"
-        >
-          <VscGithub /> <span style={{ paddingLeft: "10px" }}>Source Code</span>
-        </StyledLink>
-      </CardActions>
-    </Card>
+        </h3>
+      </div>
+
+      {/* Arrow icon */}
+      <div className="absolute top-8 right-8 md:top-12 md:right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <span className="material-symbols-outlined text-white text-[48px] md:text-[64px]">
+          north_east
+        </span>
+      </div>
+    </motion.article>
   );
 }
