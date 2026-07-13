@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -100,12 +100,20 @@ const fragmentShader = `
   }
 `;
 
-export default function MountainTerrain() {
+export default function MountainTerrain({ onReady }) {
   const meshRef = useRef();
 
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
   }), []);
+
+  // Signal the preloader that the WebGL mesh is compiled and rendering
+  useEffect(() => {
+    // Wait one frame so the GPU has actually processed the geometry
+    requestAnimationFrame(() => {
+      onReady?.();
+    });
+  }, [onReady]);
 
   useFrame((state) => {
     uniforms.uTime.value = state.clock.elapsedTime;

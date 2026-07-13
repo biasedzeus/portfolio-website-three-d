@@ -18,27 +18,22 @@ function CameraRig() {
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
-    
-    // Very gentle scroll mapping: Z moves from 18 to 15, Y moves from 4.2 to 3.2
     const scrollFactor = scrollYRef.current * 0.0008;
 
-    // Gentle time-drift combined with scroll zoom, clamping to keep in view
-    const targetZ = Math.max(13.0, 18.0 - scrollFactor - t * 0.02);
-    const targetY = Math.max(2.8, 4.2 - scrollFactor * 0.4 + Math.sin(t * 0.08) * 0.12);
-    const targetX = Math.sin(t * 0.05) * 0.25 + (scrollYRef.current * 0.0001);
+    const targetY = Math.max(2.8, 4.2 - scrollFactor * 0.4);
+    const targetZ = 18.0 + scrollFactor + t * 0.35;
 
-    state.camera.position.z = THREE.MathUtils.lerp(state.camera.position.z, targetZ, 0.04);
-    state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, targetY, 0.04);
-    state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, targetX, 0.04);
+    state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, 0, 0.03);
+    state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, targetY, 0.03);
+    state.camera.position.z = THREE.MathUtils.lerp(state.camera.position.z, targetZ, 0.03);
 
-    // Keep looking at the center mountain range
     const lookAtY = THREE.MathUtils.lerp(2.0, 1.4, Math.min(scrollFactor * 0.2, 1.0));
     state.camera.lookAt(0, lookAtY, -10);
   });
   return null;
 }
 
-export default function HomePage() {
+export default function HomePage({ onReady }) {
   return (
     <div className="fixed inset-0 w-full h-full z-0 bg-[#000000] pointer-events-none">
       <Canvas
@@ -72,7 +67,7 @@ export default function HomePage() {
         <CameraRig />
 
         {/* Procedural wireframe mountain terrain */}
-        <MountainTerrain />
+        <MountainTerrain onReady={onReady} />
 
         {/* Subtle space dust particles */}
         <SnowParticles />

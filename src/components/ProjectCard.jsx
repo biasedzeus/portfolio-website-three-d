@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 const getColSpanClass = (index) => {
   const spans = [
-    "md:col-span-8 aspect-[16/10]",
+    "md:col-span-8 aspect-[4/3] md:aspect-[16/10]",
     "md:col-span-4 aspect-[4/3] md:aspect-auto md:h-full",
-    "md:col-span-12 aspect-[21/9] md:aspect-auto md:h-[450px]"
+    "md:col-span-12 aspect-[4/3] md:aspect-auto md:h-[450px]"
   ];
   return spans[index % spans.length];
 };

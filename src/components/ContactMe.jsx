@@ -66,7 +66,7 @@ export default function ContactMe() {
 
             <div className="flex flex-wrap gap-8 border-t border-border-muted/20 pt-8 mt-12">
               {[
-                { name: "LinkedIn", url: "https://in.linkedin.com/" },
+                { name: "LinkedIn", url: "https://www.linkedin.com/in/bhanu-singh107/" },
                 { name: "AngelList", url: "https://angel.co/u/bhanu-pratap-singh-chauhan-2" },
                 { name: "GitHub", url: "https://github.com/biasedzeus" },
               ].map((link) => (

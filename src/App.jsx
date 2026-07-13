@@ -16,6 +16,7 @@ const Resume = lazy(() => import("./components/Resume"));
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const [mountainsReady, setMountainsReady] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -52,12 +53,12 @@ export default function App() {
       <div className="grain" />
 
       {/* Center Preloader */}
-      <Preloader onComplete={() => setLoading(false)} />
+      <Preloader onComplete={() => setLoading(false)} mountainsReady={mountainsReady} />
 
       {!loading && <Header />}
 
       {/* Background Layer */}
-      {!loading && <HomePage />}
+      <HomePage onReady={() => setMountainsReady(true)} />
 
       {/* Content Layer */}
       <div className="relative z-10">

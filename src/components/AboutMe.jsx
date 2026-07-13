@@ -11,10 +11,12 @@ const textReveal = {
 };
 
 const SKILLS = [
-  "UX / Systems Architecture",
-  "WebGL / Shaders / Three.js",
-  "Creative Motion & Micro-interactions",
-  "Fullstack System Design & Integration",
+  "Frontend Architecture",
+  "State Management (Redux, RxJS)",
+  "Performance Optimization",
+  "Component Library Development",
+  "Next.js & React Ecosystems",
+  "Cloud Deployments (AWS)",
 ];
 
 export default function AboutMe() {

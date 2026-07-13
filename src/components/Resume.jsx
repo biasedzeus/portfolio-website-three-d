@@ -102,7 +102,7 @@ export default function Resume() {
             GitHub
           </a>
           <a
-            href="https://in.linkedin.com/"
+            href="https://www.linkedin.com/in/bhanu-singh107/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 font-sans text-xs font-semibold text-on-surface-variant hover:text-white transition-colors uppercase tracking-wider"

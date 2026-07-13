@@ -3,23 +3,23 @@ import { motion } from "framer-motion";
 
 const EXPERIMENTS = [
   {
-    title: "Volumetric Mist",
-    desc: "A WebGL exploration of raymarching, fog interpolation, and noise displacement.",
+    title: "Rich-Text Editor Core",
+    desc: "Built complex custom rich-text editor components from scratch using ProseMirror and Tiptap, extending internal UI libraries with advanced inline formatting, nested nodes, and collaborative editing foundations.",
     span: "md:col-span-2",
   },
   {
-    title: "Terrain Morph",
-    desc: "Dynamic vertex shader mountain range deformation reacting to sound amplitude.",
+    title: "Dynamic Form Renderer",
+    desc: "Engineered a frontend workflow system featuring a dynamic form renderer with SQL-to-UI validation, optimizing on-the-fly data processing and complex state management across enterprise products.",
     span: "",
   },
   {
-    title: "Snow Shaders",
-    desc: "Custom GPU instanced particle simulation with gravity vectors and wind drift.",
+    title: "Shared Component Platform",
+    desc: "Owned a critical shared package serving 2,000+ live clients — spearheading performance optimizations, standardizing cross-team consistency, and elevating overall Developer Experience (DX).",
     span: "",
   },
   {
-    title: "Summit Type",
-    desc: "Interactive kinetic typography rendering 3D letters influenced by elevation maps.",
+    title: "AI Workflow Architecture",
+    desc: "Led a team of 6 engineers to architect the frontend platform for a new AI-driven enterprise product, overseeing end-to-end technical strategy, state orchestration with Redux & RxJS, and delivery.",
     span: "md:col-span-2",
   },
 ];
@@ -34,13 +34,13 @@ function ExperimentCard({ item, index }) {
       className={`py-8 border-t border-border-muted/20 flex flex-col justify-between min-h-[200px] ${item.span}`}
     >
       <div>
-        <span className="font-mono text-[11px] text-outline">
+        <span className="font-mono text-[13px] text-outline">
           0{index + 1}
         </span>
         <h4 className="font-serif text-2xl text-white uppercase font-extrabold mt-4 leading-none">
           {item.title}
         </h4>
-        <p className="text-on-surface-variant mt-4 font-sans text-[14px] leading-relaxed">
+        <p className="text-on-surface-variant mt-4 font-sans text-[15px] leading-relaxed">
           {item.desc}
         </p>
       </div>
@@ -64,7 +64,7 @@ export default function WhatIDo() {
               Laboratory
             </motion.h2>
             <p className="font-sans text-[15px] text-on-surface-variant max-w-md mt-4 leading-relaxed">
-              Active prototypes in shader mathematics, WebGL rendering, and kinetic interfaces.
+              Engineering deep-dives — high-impact systems I've designed, built, and shipped at scale.
             </p>
           </div>
         </div>
