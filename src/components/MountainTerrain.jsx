@@ -82,54 +82,21 @@ const fragmentShader = `
   varying vec3 vWorldPos;
 
   void main() {
-    // ---- Mountain colors ----
-    vec3 deepRock   = vec3(0.10, 0.08, 0.12);
-    vec3 rockFace   = vec3(0.22, 0.18, 0.24);
-    vec3 warmRock   = vec3(0.35, 0.25, 0.20);
-    vec3 snowEdge   = vec3(0.70, 0.72, 0.80);
-    vec3 brightSnow = vec3(0.95, 0.96, 1.0);
+    // Stark crisp light gray wireframe lines
+    vec3 glowColor = vec3(0.72, 0.72, 0.75);
+    // Deep black base
+    vec3 baseColor = vec3(0.005, 0.005, 0.006);
 
-    float t = clamp(vElevation / 8.0, 0.0, 1.0);
+    // Normalize elevation: peaks are bright, valleys fade out
+    float factor = clamp((vElevation + 1.2) / 8.0, 0.0, 1.0);
+    vec3 color = mix(baseColor, glowColor, factor);
 
-    // Snow starts earlier so peaks are clearly white
-    vec3 color = mix(deepRock, rockFace, smoothstep(0.0, 0.12, t));
-    color = mix(color, warmRock, smoothstep(0.12, 0.25, t));
-    color = mix(color, snowEdge, smoothstep(0.25, 0.40, t));
-    color = mix(color, brightSnow, smoothstep(0.45, 0.70, t));
+    // Fade into background color in the distance (fog)
+    float dist = length(vWorldPos.xz) * 0.015;
+    float hazeFactor = 1.0 - exp(-dist * dist * 0.5);
+    color = mix(color, vec3(0.0, 0.0, 0.0), hazeFactor);
 
-    // Slope-based snow: flatter surfaces collect more snow
-    float slopeSnow = pow(max(vNormal.z, 0.0), 2.0);
-    color = mix(color, brightSnow, slopeSnow * smoothstep(0.2, 0.5, t) * 0.8);
-
-    // ---- Dawn directional light ----
-    vec3 sunDir = normalize(vec3(-0.5, 0.35, -0.7));
-    vec3 sunColor = vec3(1.0, 0.6, 0.3);
-    vec3 ambientColor = vec3(0.20, 0.15, 0.30);
-
-    float NdotL = max(dot(vNormal, sunDir), 0.0);
-    vec3 lighting = ambientColor + sunColor * NdotL * 0.85;
-
-    // Snow catches more light (higher albedo)
-    float snowAmount = smoothstep(0.35, 0.7, t);
-    lighting += vec3(0.15, 0.12, 0.10) * snowAmount;
-
-    color *= lighting;
-
-    // Warm golden glow on sunlit peaks
-    float rimWarm = smoothstep(0.4, 1.0, t) * NdotL;
-    color += vec3(0.5, 0.25, 0.10) * rimWarm * 0.5;
-
-    // ---- Atmospheric haze (subtle, preserves detail) ----
-    float dist = length(vWorldPos.xz) * 0.012;
-    vec3 hazeColor = vec3(0.50, 0.38, 0.52);
-    float hazeFactor = 1.0 - exp(-dist * dist * 0.4);
-    color = mix(color, hazeColor, hazeFactor * 0.5);
-
-    // Light valley mist
-    float valleyHaze = smoothstep(1.5, -1.0, vElevation);
-    color = mix(color, vec3(0.40, 0.35, 0.50), valleyHaze * 0.25);
-
-    gl_FragColor = vec4(color, 1.0);
+    gl_FragColor = vec4(color, 0.9);
   }
 `;
 
@@ -148,14 +115,16 @@ export default function MountainTerrain() {
     <mesh
       ref={meshRef}
       rotation={[-Math.PI / 2, 0, 0]}
-      position={[0, -3, -8]}
+      position={[0, -2, -5]}
     >
-      <planeGeometry args={[100, 100, 300, 300]} />
+      <planeGeometry args={[120, 120, 220, 220]} />
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms}
         side={THREE.DoubleSide}
+        wireframe={true}
+        transparent={true}
       />
     </mesh>
   );

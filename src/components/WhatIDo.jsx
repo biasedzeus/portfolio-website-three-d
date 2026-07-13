@@ -4,90 +4,72 @@ import { motion } from "framer-motion";
 const EXPERIMENTS = [
   {
     title: "Volumetric Mist",
-    desc: "A WebGL exploration of raymarching and mountain noise textures.",
-    icon: null,
-    span: "md:col-span-2 md:row-span-2",
-    accent: true,
-    progress: 33,
+    desc: "A WebGL exploration of raymarching, fog interpolation, and noise displacement.",
+    span: "md:col-span-2",
   },
   {
     title: "Terrain Morph",
-    desc: null,
-    icon: "landscape",
+    desc: "Dynamic vertex shader mountain range deformation reacting to sound amplitude.",
     span: "",
-    accent: false,
   },
   {
     title: "Snow Shaders",
-    desc: null,
-    icon: "ac_unit",
+    desc: "Custom GPU instanced particle simulation with gravity vectors and wind drift.",
     span: "",
-    accent: false,
   },
   {
     title: "Summit Type",
-    desc: "Interactive kinetic typography responding to altitude data.",
-    icon: null,
+    desc: "Interactive kinetic typography rendering 3D letters influenced by elevation maps.",
     span: "md:col-span-2",
-    accent: false,
   },
 ];
 
 function ExperimentCard({ item, index }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`glass-panel p-8 md:p-10 hover:bg-surface-container-high transition-all group ${item.span} ${
-        item.accent ? "border-l-4 border-l-primary flex flex-col justify-between min-h-[300px] md:min-h-[450px]" : ""
-      }`}
+      transition={{ duration: 0.8, delay: index * 0.05, ease: [0.215, 0.61, 0.355, 1] }}
+      className={`py-8 border-t border-border-muted/20 flex flex-col justify-between min-h-[200px] ${item.span}`}
     >
-      {item.icon && (
-        <span className="material-symbols-outlined text-primary text-[48px] group-hover:scale-110 transition-transform">
-          {item.icon}
-        </span>
-      )}
       <div>
-        <h4 className="font-serif text-headline-sm text-white uppercase italic font-bold mt-4 md:mt-6">
+        <span className="font-mono text-[11px] text-outline">
+          0{index + 1}
+        </span>
+        <h4 className="font-serif text-2xl text-white uppercase font-extrabold mt-4 leading-none">
           {item.title}
         </h4>
-        {item.desc && (
-          <p className="text-on-surface-variant mt-3 md:mt-4 font-body text-body-md">
-            {item.desc}
-          </p>
-        )}
+        <p className="text-on-surface-variant mt-4 font-sans text-[14px] leading-relaxed">
+          {item.desc}
+        </p>
       </div>
-      {item.progress != null && (
-        <div className="w-full h-1 bg-border-muted rounded-full overflow-hidden mt-6">
-          <div className="h-full bg-primary" style={{ width: `${item.progress}%` }} />
-        </div>
-      )}
     </motion.div>
   );
 }
 
 export default function WhatIDo() {
   return (
-    <section className="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-low" id="experiment">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-gutter">
-        <div className="mb-12 md:mb-16">
-          <motion.h2
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="font-serif text-headline-lg uppercase italic font-black"
-          >
-            Laboratory
-          </motion.h2>
-          <p className="font-body text-body-lg text-on-surface-variant max-w-lg mt-4">
-            R&amp;D experiments in shader mathematics and interactive topography.
-          </p>
+    <section className="py-24 md:py-40 bg-transparent" id="experiment">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-gutter">
+        <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="font-serif text-5xl md:text-7xl uppercase font-extrabold text-white"
+            >
+              Laboratory
+            </motion.h2>
+            <p className="font-sans text-[15px] text-on-surface-variant max-w-md mt-4 leading-relaxed">
+              Active prototypes in shader mathematics, WebGL rendering, and kinetic interfaces.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-2">
           {EXPERIMENTS.map((item, i) => (
             <ExperimentCard key={item.title} item={item} index={i} />
           ))}

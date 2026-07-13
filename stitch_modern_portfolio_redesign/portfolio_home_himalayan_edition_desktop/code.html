@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bhanu Singh | Celestial Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#464556",
+                    "outline": "#908fa1",
+                    "surface-container-highest": "#34343a",
+                    "surface-dim": "#131318",
+                    "primary-fixed": "#e1dfff",
+                    "on-surface-variant": "#c7c4d8",
+                    "secondary-container": "#47464c",
+                    "on-primary-fixed": "#09006b",
+                    "on-primary-fixed-variant": "#2b20d2",
+                    "on-tertiary-container": "#fafafa",
+                    "on-secondary-fixed": "#1b1b20",
+                    "background": "#131318",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "secondary": "#c8c5cc",
+                    "inverse-on-surface": "#303035",
+                    "on-surface-muted": "#c7c4d8",
+                    "on-primary": "#1500a8",
+                    "secondary-fixed": "#e4e1e8",
+                    "on-secondary": "#303035",
+                    "surface-container-high": "#2a292f",
+                    "on-secondary-fixed-variant": "#47464c",
+                    "border-muted": "rgba(144, 143, 161, 0.2)",
+                    "glow-violet": "rgba(193, 193, 255, 0.05)",
+                    "inverse-primary": "#4643e9",
+                    "secondary-fixed-dim": "#c8c5cc",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-container-lowest": "#0e0e12",
+                    "tertiary-container": "#727373",
+                    "on-surface": "#e4e1e8",
+                    "surface-variant": "#34343a",
+                    "on-error": "#690005",
+                    "tertiary": "#c6c6c7",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#b6b4bb",
+                    "surface-container-low": "#1b1b20",
+                    "primary": "#c1c1ff",
+                    "glass-surface": "rgba(31, 31, 36, 0.4)",
+                    "primary-container": "#5d5cff",
+                    "inverse-surface": "#e4e1e8",
+                    "surface-container": "#1f1f24",
+                    "primary-fixed-dim": "#c1c1ff",
+                    "surface-bright": "#39393e",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "on-tertiary": "#2f3131",
+                    "error-container": "#93000a",
+                    "surface-tint": "#c1c1ff",
+                    "on-background": "#e4e1e8",
+                    "on-primary-container": "#fdf9ff",
+                    "error": "#ffb4ab",
+                    "surface": "#131318",
+                    "tertiary-fixed": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "section-gap-mobile": "80px",
+                    "section-gap-desktop": "160px",
+                    "margin-mobile": "20px",
+                    "gutter": "32px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Playfair Display", "serif"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Playfair Display", "serif"],
+                    "label-md": ["Hanken Grotesk"],
+                    "caption": ["Hanken Grotesk"],
+                    "headline-sm": ["Playfair Display", "serif"],
+                    "display-lg": ["Playfair Display", "serif"],
+                    "headline-md": ["Playfair Display", "serif"],
+                    "serif": ["Playfair Display", "serif"],
+                    "grotesque": ["Hanken Grotesk", "sans-serif"]
+            },
+            "fontSize": {
+                    "headline-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["20px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-md": ["17px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["42px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "label-md": ["13px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "caption": ["11px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-sm": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["84px", {"lineHeight": "1.0", "letterSpacing": "-0.03em", "fontWeight": "900"}],
+                    "headline-md": ["38px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+body {
+    background-color: #131318;
+    color: #e4e1e8;
+    overflow-x: hidden;
+    scroll-behavior: smooth
+}
+.glass-panel {
+    backdrop-filter: blur(12px);
+    background: rgba(31, 31, 36, 0.4);
+    border: 1px solid rgba(144, 143, 161, 0.2)
+}
+.kinetic-text {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    color: transparent;
+    background: linear-gradient(to bottom, #c1c1ff, #5d5cff);
+    -webkit-background-clip: text;
+    background-clip: text
+}
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none
+}
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none
+}
+.scroll-item {
+    scroll-snap-align: center;
+    flex: 0 0 80vw
+}
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c1c1ff;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out
+}
+.grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.03;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuC68OIbPhWSouT_XSCqotg2L4lD4ebI6UM2cnTITO2S3vacfpuM8i4Wn8ArTYvgMt4eEcWy4HYAaN3Bj95aHTv6Yg0cExXcnvtNa3OQ5Hxsbpetrw3txfSD2D4qC_aM0niwFyJGYTWidUlBhTJJon0Zmexvzw8RtWKrio_IvEe6BwMTDCYO72YXfUoWfvw6VbQnUr_ull6MafLT1GrKpczt4eL7SjpR6Fzh3zDv1t4kcxRXXNxxCVMCXjhRYvi2u9eg19iy5qqKBBpW)
+}
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: marquee 20s linear infinite
+}
+@keyframes marquee {
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-50%); }
+}
+.hero-image-overlay {
+    background: linear-gradient(to bottom, rgba(19, 19, 24, 0.4) 0%, rgba(19, 19, 24, 1) 100%);
+}
+</style>
+</head>
+<body class="font-grotesque selection:bg-primary selection:text-on-primary">
+<div class="custom-cursor" id="cursor"></div>
+<div class="grain"></div>
+<!-- Navigation -->
+<nav class="fixed top-8 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-[1200px] rounded-full bg-glass-surface backdrop-blur-xl border border-border-muted shadow-2xl shadow-glow-violet flex justify-between items-center px-8 py-4 z-50 transition-all duration-500 ease-out hover:scale-[1.02]">
+<div class="font-serif text-headline-sm italic tracking-tighter text-on-surface">BHANU SINGH</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md uppercase tracking-[0.2em] text-primary border-b border-primary pb-1" href="#work">Work</a>
+<a class="font-label-md text-label-md uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors duration-300" href="#about">About</a>
+<a class="font-label-md text-label-md uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors duration-300" href="#experiment">Experiment</a>
+<a class="font-label-md text-label-md uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors duration-300" href="#contact">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md uppercase tracking-[0.15em] hover:brightness-110 transition-all shadow-lg shadow-primary/20">Connect</button>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+<!-- Himalayan Background -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 hero-image-overlay z-10"></div>
+<img alt="Himalayan Mountains" class="w-full h-full object-cover opacity-60 scale-105" data-speed="-0.5" id="hero-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB51joCU44z_bK_Sh55yuHLfzRSGBCOhL9FOxMp-ywgtNe2qCNZtEOSanto9n98eSVqiHlw__mSfMcTjtq9FPFsQyFc0vGhaRi_AAtWn_iqy6y9M-DbSKxJML4T_U3b4cvTXJpBK7mT0EIUZhrHIcsBoHNTrjN5DmRIfxggbY-z-2vznF7AjEXbC7_RoKSPwSaxEU6PLEZHRXk-P8ErkKVX0ZdN3nk3biID7-8_s6i8dm8FIvK4qeJQW7DTjDuuY2VEnYoHRd_1_959"/>
+</div>
+<div class="container-max mx-auto px-gutter relative z-20 text-center">
+<h1 class="font-serif text-[clamp(64px,12vw,180px)] leading-[0.85] tracking-tighter uppercase font-black italic select-none">
+<span class="block kinetic-text" data-speed="2">Celestial</span>
+<span class="block ml-[10vw]" data-speed="-1.5">Architect</span>
+<span class="block mr-[5vw] kinetic-text" data-speed="3">Himalaya</span>
+</h1>
+<div class="mt-24 flex flex-col md:flex-row justify-between items-end border-t border-border-muted pt-8 gap-8">
+<div class="text-left">
+<p class="font-label-md uppercase tracking-[0.2em] text-primary">Based in the Himalayas</p>
+<p class="font-label-md uppercase tracking-[0.2em] text-outline">Available for Freelance</p>
+</div>
+<div class="max-w-md text-right">
+<p class="font-body-lg text-on-surface-variant leading-relaxed">Scaling digital peaks. I architect immersive ecosystems and high-impact digital experiences from the roof of the world.</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Projects Section -->
+<section class="py-section-gap-desktop bg-surface-container-lowest overflow-hidden" id="work">
+<div class="px-gutter mb-16 flex items-baseline justify-between container-max mx-auto">
+<h2 class="font-serif text-headline-lg uppercase italic font-black">Selected Works</h2>
+<p class="font-label-md uppercase tracking-[0.3em] text-outline">03 / 12</p>
+</div>
+<div class="horizontal-scroll-container px-[10vw] gap-12 pb-12 cursor-grab active:cursor-grabbing">
+<!-- Project 1 -->
+<div class="scroll-item group relative aspect-[16/10] overflow-hidden glass-panel rounded-xl">
+<div class="absolute inset-0 transition-transform duration-1000 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBANazA4re4B_8iyfttj7LfoxbNl7QKH_HBK3eu5KfXCKgnKunmUiMeI-n5EIrEIWJ9HIdo4iGpEqUo6cVGUbPe_0niZRDoG3UBLY9VYJKBitcALnZ9qgiqUiKdV0dUWD6rPnlOzzk-mx0j936eFmBdOFHgmXBYat1aTpuRDrq9AnPwcOc8yhzXrzm48zIXzKQyFLYRLyi8173_0gQGAwlxZiGLeG_5YmLjQwXdkx1WqSJsgIiRkkiAIbo8eMpsG_gSwJn7DWosXhx0')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+<div class="absolute bottom-12 left-12">
+<span class="bg-primary text-on-primary px-4 py-1 rounded-full text-caption uppercase font-bold tracking-[0.2em] mb-4 inline-block">Firebase • React</span>
+<h3 class="font-serif text-headline-lg-mobile text-white uppercase italic tracking-tighter">Messenger Firebase</h3>
+</div>
+<div class="absolute top-12 right-12 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-[64px]">north_east</span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="scroll-item group relative aspect-[16/10] overflow-hidden glass-panel rounded-xl">
+<div class="absolute inset-0 transition-transform duration-1000 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRlA2JYq8RxbkpGgNWqVN5l58T2vJTPw56XfRD2l1gvGIy3KZu8eZQaREsgsi7xDqxNo4j1S-awyL2hcjjsDPtSMCbXUDoxSaMzpe3jUW7LJTpxUvTf5ZBICebjFgvjMlSwLGH2gVrdORyvjWhrNPfR9UIclw2HUUqHc9TcQZDz169rYMR9GfIDpgXHSkoAwZ22UPKl3Vqg79Dq2ztqfpELxGbSQOjnxN46G-7H0X7XdannWOl-RkP4sDLWSl79ICl_gu9zzcjQDuS')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+<div class="absolute bottom-12 left-12">
+<span class="bg-primary text-on-primary px-4 py-1 rounded-full text-caption uppercase font-bold tracking-[0.2em] mb-4 inline-block">MUI • Next.js</span>
+<h3 class="font-serif text-headline-lg-mobile text-white uppercase italic tracking-tighter">Youtube MUI</h3>
+</div>
+<div class="absolute top-12 right-12 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-[64px]">north_east</span>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="scroll-item group relative aspect-[16/10] overflow-hidden glass-panel rounded-xl">
+<div class="absolute inset-0 transition-transform duration-1000 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDUZx-ICWRe9E6EcqNMAsNbFm7vkyTr1xAlf3X6LATbUpJ70OkHyHeZBSMKKgLJuryL-nfl_SraStpkb_d-CF8JWWS7SNvOU_9--sqzc2SrMar-X8DPZIjxU9dX-xWdB5NVt9j_NDq5t8C8DiYOJjXhkxnwK0F_sJaGD033h6r4Hi_njvSzYX3TevCehn5GAX-7tgAeGSOblDQTlogfktZdWrIbdUca_k9HfMtv9dUda7XEDCiLQ6SuYJs69WHrYbXX9dhJ7UfJTXC')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+<div class="absolute bottom-12 left-12">
+<span class="bg-primary text-on-primary px-4 py-1 rounded-full text-caption uppercase font-bold tracking-[0.2em] mb-4 inline-block">Redux • Tailwind</span>
+<h3 class="font-serif text-headline-lg-mobile text-white uppercase italic tracking-tighter">Shopping Cart</h3>
+</div>
+<div class="absolute top-12 right-12 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-[64px]">north_east</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee -->
+<div class="py-16 bg-primary overflow-hidden">
+<div class="marquee font-serif text-headline-md uppercase text-on-primary font-black italic tracking-tighter">
+            SCALING PEAKS • ARCHITECTING FUTURES • HIMALAYAN DESIGN • CELESTIAL CODE • SCALING PEAKS • ARCHITECTING FUTURES • HIMALAYAN DESIGN • CELESTIAL CODE •
+        </div>
+</div>
+<!-- About Section -->
+<section class="py-section-gap-desktop container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-16 items-center" id="about">
+<div class="md:col-span-5 relative aspect-[3/4] glass-panel overflow-hidden group">
+<div class="absolute inset-0 mix-blend-luminosity brightness-75 group-hover:scale-105 transition-transform duration-[2s] ease-out bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAabaeWaDlWzPyXs9AJ0B571NcR5YYPEO2n-7gyR0nRqH3RCl7a0onJnWuE6fltSIwK2HPWlumvEEPIsJw5Ai0PUaCBLq4fY9Eqkp1t7sCOet5nZ5uO5G-p4LS6dkb1L7_R-cBzTdgD6g0zWvSQWfdGmsXlcNXX6mvzdu14UZZu7SqgQAodJknXUiuAqeMdBIMpxTIhdI6hQtawLWbV7k9tT9ZnuPNS1i7UhviKmP2oplK-Lp_qWSXJr32THOFSXF7HFLtT8rP13n3v')"></div>
+<div class="absolute inset-0 border-[20px] border-surface-dim"></div>
+</div>
+<div class="md:col-span-7">
+<h2 class="font-serif text-[clamp(42px,5vw,72px)] italic leading-[1.1] font-bold mb-12">
+                I architect immersive digital ecosystems from the heart of the <span class="text-primary">mountains</span>.
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-on-surface-variant font-body-lg">
+<p class="leading-relaxed">My work is a synergy of technical mastery and the vast, quiet inspiration of the Himalayan landscape. I don't just build websites; I construct digital monuments that endure.</p>
+<p class="leading-relaxed">From my studio at 3,000 meters, I collaborate with global innovators to push the limits of WebGL, Three.js, and modern interface paradigms.</p>
+</div>
+<div class="mt-16 flex gap-16 border-t border-border-muted pt-10">
+<div>
+<span class="block font-serif text-headline-md text-primary italic font-black">05+</span>
+<span class="font-label-md uppercase tracking-[0.2em] text-outline">Years Scaling</span>
+</div>
+<div>
+<span class="block font-serif text-headline-md text-primary italic font-black">40+</span>
+<span class="font-label-md uppercase tracking-[0.2em] text-outline">Summits Reached</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Experiment Section -->
+<section class="py-section-gap-desktop bg-surface-container-low" id="experiment">
+<div class="container-max mx-auto px-gutter">
+<div class="mb-16">
+<h2 class="font-serif text-headline-lg uppercase italic font-black">Laboratory</h2>
+<p class="font-body-lg text-on-surface-variant max-w-lg mt-4">R&amp;D experiments in shader mathematics and interactive topography.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-2 md:row-span-2 glass-panel p-10 flex flex-col justify-between min-h-[450px] hover:bg-surface-container-high transition-all group border-l-4 border-l-primary">
+<div>
+<h4 class="font-serif text-headline-sm text-white uppercase italic font-bold">Volumetric Mist</h4>
+<p class="text-on-surface-variant mt-4 font-body-md">A WebGL exploration of raymarching and mountain noise textures.</p>
+</div>
+<div class="w-full h-1 bg-border-muted rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3"></div>
+</div>
+</div>
+<div class="glass-panel p-8 hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-primary text-[48px] group-hover:scale-110 transition-transform">landscape</span>
+<h4 class="mt-6 font-serif text-headline-sm text-white uppercase italic">Terrain Morph</h4>
+</div>
+<div class="glass-panel p-8 hover:border-primary transition-all group">
+<span class="material-symbols-outlined text-primary text-[48px] group-hover:scale-110 transition-transform">ac_unit</span>
+<h4 class="mt-6 font-serif text-headline-sm text-white uppercase italic">Snow Shaders</h4>
+</div>
+<div class="md:col-span-2 glass-panel p-10 flex items-center gap-8 overflow-hidden relative group">
+<div class="relative z-10">
+<h4 class="font-serif text-headline-sm text-white uppercase italic font-bold">Summit Type</h4>
+<p class="text-on-surface-variant mt-2 font-body-md">Interactive kinetic typography responding to altitude data.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap-desktop relative overflow-hidden" id="contact">
+<div class="container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-24">
+<div>
+<h2 class="font-serif text-[clamp(64px,9vw,140px)] leading-[0.8] uppercase font-black italic mb-16 select-none">
+                    Reach <br/>The <br/>Peak.
+                </h2>
+<div class="space-y-8">
+<a class="group flex items-center gap-6 text-headline-sm font-serif italic hover:text-primary transition-colors" href="mailto:hello@bhanu.dev">
+                        hello@bhanu.dev
+                        <span class="material-symbols-outlined group-hover:translate-x-4 transition-transform">east</span>
+</a>
+<div class="flex flex-wrap gap-8 mt-16">
+<a class="font-label-md uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="font-label-md uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="font-label-md uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-colors" href="#">GitHub</a>
+</div>
+</div>
+</div>
+<div class="glass-panel p-14 rounded-2xl relative shadow-2xl">
+<form class="space-y-14">
+<div class="relative group">
+<input class="peer w-full bg-transparent border-b border-outline-variant py-4 focus:border-primary focus:outline-none text-headline-sm font-serif italic transition-all placeholder-transparent" placeholder=" " type="text"/>
+<label class="absolute left-0 top-4 text-outline font-label-md uppercase tracking-[0.2em] pointer-events-none transition-all peer-focus:-top-6 peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-6">Mission Name</label>
+</div>
+<div class="relative group">
+<input class="peer w-full bg-transparent border-b border-outline-variant py-4 focus:border-primary focus:outline-none text-headline-sm font-serif italic transition-all placeholder-transparent" placeholder=" " type="email"/>
+<label class="absolute left-0 top-4 text-outline font-label-md uppercase tracking-[0.2em] pointer-events-none transition-all peer-focus:-top-6 peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-6">Signal Path (Email)</label>
+</div>
+<div class="relative group">
+<textarea class="peer w-full bg-transparent border-b border-outline-variant py-4 focus:border-primary focus:outline-none text-headline-sm font-serif italic transition-all placeholder-transparent resize-none overflow-hidden" placeholder=" " rows="1"></textarea>
+<label class="absolute left-0 top-4 text-outline font-label-md uppercase tracking-[0.2em] pointer-events-none transition-all peer-focus:-top-6 peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-6">The Brief</label>
+</div>
+<button class="w-full bg-primary text-on-primary py-8 rounded-full font-label-md uppercase tracking-[0.4em] font-black text-xl shadow-2xl shadow-primary/40 hover:scale-[1.02] active:scale-95 transition-all">
+                        Initiate Connection
+                    </button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-border-muted pt-section-gap-desktop">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-gutter py-12 flex flex-col items-center text-center">
+<div class="font-serif text-[18vw] leading-none text-on-surface opacity-5 select-none pointer-events-none mb-16 font-black italic">HIMALAYA</div>
+<div class="w-full flex flex-col md:flex-row justify-between items-center gap-12 border-t border-border-muted pt-16">
+<p class="font-label-md text-on-surface-muted uppercase tracking-[0.1em]">© 2024 CELESTIAL ARCHITECT — BORN IN THE MOUNTAINS</p>
+<div class="flex gap-10">
+<a class="font-label-md uppercase text-on-surface-muted hover:text-primary transition-all duration-700 hover:tracking-[0.2em]" href="#">GitHub</a>
+<a class="font-label-md uppercase text-on-surface-muted hover:text-primary transition-all duration-700 hover:tracking-[0.2em]" href="#">LinkedIn</a>
+<a class="font-label-md uppercase text-on-surface-muted hover:text-primary transition-all duration-700 hover:tracking-[0.2em]" href="#">Twitter</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+        });
+
+        // Parallax & Motion Effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const kineticElements = document.querySelectorAll('[data-speed]');
+            kineticElements.forEach(el => {
+                const speed = el.getAttribute('data-speed');
+                if (el.id === 'hero-img') {
+                    el.style.transform = `translateY(${scrolled * speed}px) scale(1.05)`;
+                } else {
+                    el.style.transform = `translateX(${scrolled * speed * 0.1}px)`;
+                }
+            });
+        });
+
+        // Smooth interaction for text areas
+        const textareas = document.querySelectorAll('textarea');
+        textareas.forEach(textarea => {
+            textarea.addEventListener('input', () => {
+                textarea.style.height = 'auto';
+                textarea.style.height = textarea.scrollHeight + 'px';
+            });
+        });
+
+        // Hover scale for project cards
+        document.querySelectorAll('.scroll-item').forEach(item => {
+            item.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = item.getBoundingClientRect();
+                const x = (e.clientX - left) / width;
+                const y = (e.clientY - top) / height;
+                item.style.transform = `perspective(1000px) rotateY(${(x - 0.5) * 8}deg) rotateX(${(y - 0.5) * -8}deg) scale(1.02)`;
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)`;
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,428 @@
+<html class="dark" lang="en"><head></head><body class="flex flex-col min-h-screen">```html
+
+
+
+    <meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BHANU SINGH — Digital Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #131318;
+            color: #e4e1e8;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            min-height: max(884px, 100dvh);
+        }
+        .glass-card {
+            background: rgba(31, 31, 36, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(144, 143, 161, 0.2);
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        .kerning-tight {
+            letter-spacing: -0.06em;
+        }
+        .editorial-shadow {
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-animation {
+            animation: subtle-float 6s ease-in-out infinite;
+        }
+        .hero-mask {
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+
+        /* Cloud Animation */
+        @keyframes cloud-drift {
+            0% { transform: translateX(-100%) translateY(0); opacity: 0; }
+            10% { opacity: 0.2; }
+            90% { opacity: 0.2; }
+            100% { transform: translateX(200%) translateY(20px); opacity: 0; }
+        }
+        .cloud {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: 5;
+        }
+        .cloud-1 { width: 400px; height: 150px; top: 20%; animation: cloud-drift 40s linear infinite; }
+        .cloud-2 { width: 500px; height: 200px; top: 40%; animation: cloud-drift 55s linear infinite -10s; }
+        
+        #snow-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#464556",
+                      "outline": "#908fa1",
+                      "surface-container-highest": "#34343a",
+                      "surface-dim": "#131318",
+                      "primary-fixed": "#e1dfff",
+                      "on-surface-variant": "#c7c4d8",
+                      "secondary-container": "#47464c",
+                      "on-primary-fixed": "#09006b",
+                      "on-primary-fixed-variant": "#2b20d2",
+                      "on-tertiary-container": "#fafafa",
+                      "on-secondary-fixed": "#1b1b20",
+                      "background": "#131318",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "secondary": "#c8c5cc",
+                      "inverse-on-surface": "#303035",
+                      "on-surface-muted": "#c7c4d8",
+                      "on-primary": "#1500a8",
+                      "secondary-fixed": "#e4e1e8",
+                      "on-secondary": "#303035",
+                      "surface-container-high": "#2a292f",
+                      "on-secondary-fixed-variant": "#47464c",
+                      "border-muted": "rgba(144, 143, 161, 0.2)",
+                      "glow-violet": "rgba(193, 193, 255, 0.05)",
+                      "inverse-primary": "#4643e9",
+                      "secondary-fixed-dim": "#c8c5cc",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "surface-container-lowest": "#0e0e12",
+                      "tertiary-container": "#727373",
+                      "on-surface": "#e4e1e8",
+                      "surface-variant": "#34343a",
+                      "on-error": "#690005",
+                      "tertiary": "#c6c6c7",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-container": "#b6b4bb",
+                      "surface-container-low": "#1b1b20",
+                      "primary": "#c1c1ff",
+                      "glass-surface": "rgba(31, 31, 36, 0.4)",
+                      "primary-container": "#5d5cff",
+                      "inverse-surface": "#e4e1e8",
+                      "surface-container": "#1f1f24",
+                      "primary-fixed-dim": "#c1c1ff",
+                      "surface-bright": "#39393e",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "on-tertiary": "#2f3131",
+                      "error-container": "#93000a",
+                      "surface-tint": "#c1c1ff",
+                      "on-background": "#e4e1e8",
+                      "on-primary-container": "#fdf9ff",
+                      "error": "#ffb4ab",
+                      "surface": "#131318",
+                      "tertiary-fixed": "#e2e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "section-gap-mobile": "80px",
+                      "section-gap-desktop": "160px",
+                      "margin-mobile": "20px",
+                      "gutter": "32px",
+                      "container-max": "1200px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Hanken Grotesk"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "label-md": ["Hanken Grotesk"],
+                      "caption": ["Inter"],
+                      "headline-sm": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["42px", {"lineHeight": "1.05", "fontWeight": "900"}],
+                      "label-md": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                      "caption": ["10px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                      "headline-sm": ["26px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "display-lg": ["84px", {"lineHeight": "0.95", "letterSpacing": "-0.05em", "fontWeight": "900"}],
+                      "headline-md": ["36px", {"lineHeight": "1.2", "fontWeight": "800"}]
+              }
+            },
+          },
+        }
+      </script>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[1200px] rounded-full bg-glass-surface flex justify-between items-center px-6 py-4 z-50 backdrop-blur-2xl border border-border-muted shadow-2xl">
+<div class="font-headline-sm text-[20px] font-black tracking-tighter text-on-surface">BHANU SINGH</div>
+<button class="md:hidden text-primary p-1" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-3xl">menu_open</span>
+</button>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary border-b-2 border-primary pb-1 font-label-md text-label-md uppercase tracking-widest" href="#">Work</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300 font-label-md text-label-md uppercase tracking-widest" href="#">About</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300 font-label-md text-label-md uppercase tracking-widest" href="#">Experiment</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-300 font-label-md text-label-md uppercase tracking-widest" href="#">Contact</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md uppercase tracking-widest hover:scale-105 transition-all font-bold">Connect</button>
+</div>
+</nav>
+<!-- Mobile Navigation Overlay -->
+<div class="fixed inset-0 bg-background z-[60] flex flex-col items-center justify-center gap-10 hidden" id="mobile-menu">
+<button class="absolute top-8 right-8 text-on-surface" id="close-menu-btn">
+<span class="material-symbols-outlined text-5xl">close</span>
+</button>
+<a class="font-display-lg text-display-lg tracking-tighter text-on-surface" href="#">WORK</a>
+<a class="font-display-lg text-display-lg tracking-tighter text-on-surface-variant" href="#">ABOUT</a>
+<a class="font-display-lg text-display-lg tracking-tighter text-on-surface-variant" href="#">LABS</a>
+<a class="font-display-lg text-display-lg tracking-tighter text-on-surface-variant" href="#">CONTACT</a>
+</div>
+<main class="flex-grow pt-16 px-margin-mobile md:px-gutter">
+<!-- Hero Section: Himalayan Integration -->
+<section class="min-h-[85vh] flex flex-col justify-center items-center text-center relative overflow-hidden -mx-margin-mobile" id="hero-section">
+<!-- Parallax Background Layer -->
+<div class="absolute inset-0 z-0 hero-mask overflow-hidden">
+<div class="w-full h-[120%] absolute -top-[10%] left-0 bg-cover bg-center transition-transform duration-100 ease-out" id="parallax-bg" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLtAa8EzXzADnOSeYg4GW6Ay86N2VPw4wyjVB49BCxbS_UlVrkuo_3VcPr95Bs-3N5EOMB2q8-YyvCN1qpV8DJEwSafv8OodvVjvCA9C-sS9gYrNfxPneW6K0Sd1VQ1utBdiWQG2_GPprIIPBuRlfcju4W1UJQvGVtdy6GBLcxjlByf86_fHD8c8tYnYoDeS6Dl4PbjVXZDBoMq12eirImfhmhNMEStE0MIm_Jn4l5ZhHt9oJkd2BGDFxS7P')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background/10 via-background/40 to-background"></div>
+<!-- Floating Clouds -->
+<div class="cloud cloud-1"></div>
+<div class="cloud cloud-2"></div>
+<!-- Snow Shader Layer -->
+<canvas id="snow-canvas"></canvas>
+</div>
+<div class="relative z-20 space-y-6 px-margin-mobile">
+<h1 class="flex flex-col font-display-lg text-display-lg tracking-tighter leading-[0.85] kerning-tight editorial-shadow">
+<span class="block">BUILDING</span>
+<span class="block text-primary">DIGITAL</span>
+<span class="block">MAJESTY</span>
+</h1>
+<div class="pt-10 flex flex-col items-center">
+<p class="font-label-md text-label-md uppercase tracking-[0.2em] text-primary/80 font-black">
+                    DESIGN ARCHITECT — BERLIN
+                </p>
+<p class="font-body-md text-on-surface-variant mt-2 max-w-[280px] mx-auto text-sm opacity-80">
+                    Crafting monumental experiences at the intersection of high-alpine aesthetics and technical precision.
+                </p>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-6 z-20">
+<div class="w-[2px] h-16 bg-gradient-to-b from-primary/50 to-transparent"></div>
+<span class="font-label-md text-[9px] uppercase tracking-[0.3em] text-outline vertical-text h-32">Scroll to Explore</span>
+</div>
+</section>
+<!-- Featured Work Section: High Impact Typography -->
+<section class="py-section-gap-mobile space-y-24" id="work">
+<div class="flex justify-between items-end border-b-2 border-primary/20 pb-6">
+<h2 class="font-headline-md text-headline-md tracking-tighter uppercase font-black">Archive <span class="text-primary italic">01</span></h2>
+<span class="font-label-md text-label-md text-outline font-black">2023—2024</span>
+</div>
+<!-- Project Card 01 -->
+<article class="group relative w-full h-[680px] flex flex-col justify-end p-8 overflow-hidden rounded-2xl border border-border-muted shadow-2xl transition-all duration-700">
+<div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-110">
+<div class="w-full h-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWn_ViFI9UPe4cvsVw1y98A8mNBjMiWJur-hbp9uwvUyI8NLsVzy1UefoFXMLtHiA2NCIqdLAp0w9t3B3NWqWjOcdr25cDRRxDO7GdqTzCkm_Fzzv9thYC3nc6ZtjNvdlCb1tYE2BVRWl5wucnj3R81ibDyiqEvMZRNorMUOql7ZeL4QAKKzTauiJcfpb41rxYy7OaaNhG60_HD98GVeEKI1PeiHGP96uqjAYd2opfWWLw6TN1jXIJsfG3XRJfpRxwSvmkQbK_ZiP4')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"></div>
+</div>
+<div class="relative z-10 space-y-6">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] font-black border-l-2 border-primary pl-4">Digital Identity</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile tracking-tighter leading-[0.9] font-black editorial-shadow">NEON<br/>VELOCITY</h3>
+<div class="flex flex-col gap-6">
+<p class="font-body-md text-on-surface-variant max-w-[280px] leading-relaxed">Redefining luxury automotive retail through immersive WebGL interfaces.</p>
+<a class="w-16 h-16 rounded-full border-2 border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 scale-90 group-hover:scale-100" href="#">
+<span class="material-symbols-outlined text-3xl">arrow_outward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project Card 02 -->
+<article class="group relative w-full h-[680px] flex flex-col justify-end p-8 overflow-hidden rounded-2xl border border-border-muted shadow-2xl transition-all duration-700">
+<div class="absolute inset-0 z-0 transition-transform duration-1000 group-hover:scale-110">
+<div class="w-full h-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCK257HAfl-MYpPjgMQtFn0ocVENKQTWjBr0POarRXuVswPoGGPQXpotOQz0s1S5QDF4OuWDzsPfcdnJR0Ap7yzMhxWQXhv3UuOrBtEG1WrRxenFW_F1L_rWYTUXEuhD4icpGeAZLtNjKBxmALB0mhjxIMXSb7QQSNu08GFYIk0nINnuwDG4ic4uvzpXvr89DTrciAK6C5fHFl3HtA_6N147ohIXStTwanBn3vau1U2cMdSYmj1t-l_-zTd-ZkwVAXyblQqORPejRU7')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"></div>
+</div>
+<div class="relative z-10 space-y-6">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] font-black border-l-2 border-primary pl-4">SaaS Infrastructure</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile tracking-tighter leading-[0.9] font-black editorial-shadow">QUANTUM<br/>CORE</h3>
+<div class="flex flex-col gap-6">
+<p class="font-body-md text-on-surface-variant max-w-[280px] leading-relaxed">A data-driven visualization platform for high-frequency trading ecosystems.</p>
+<a class="w-16 h-16 rounded-full border-2 border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-500 scale-90 group-hover:scale-100" href="#">
+<span class="material-symbols-outlined text-3xl">arrow_outward</span>
+</a>
+</div>
+</div>
+</article>
+</section>
+<!-- Experience / About Section -->
+<section class="py-section-gap-mobile grid grid-cols-1 gap-8">
+<div class="space-y-4">
+<span class="font-label-md text-primary tracking-[0.3em] font-black uppercase">The Architect</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile tracking-tighter uppercase font-black">Personal<br/>Philosophy</h2>
+</div>
+<div class="glass-card p-10 rounded-2xl space-y-8">
+<p class="font-headline-sm text-headline-sm leading-[1.1] font-black italic">"I build bridges between monumental scale and human nuance."</p>
+<div class="w-20 h-[2px] bg-primary"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">With nearly a decade of experience across global design hubs, I craft digital ecosystems that command presence while ensuring surgical usability.</p>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="glass-card p-8 rounded-2xl flex flex-col justify-center items-start">
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary font-black mb-6">Expertise</h4>
+<ul class="font-headline-sm text-[22px] space-y-3 font-black uppercase tracking-tighter">
+<li class="flex items-center gap-4"><span class="w-2 h-2 bg-primary rounded-full"></span> UX ARCHITECTURE</li>
+<li class="flex items-center gap-4"><span class="w-2 h-2 bg-primary rounded-full"></span> WEBGL / THREE.JS</li>
+<li class="flex items-center gap-4"><span class="w-2 h-2 bg-primary rounded-full"></span> MOTION DESIGN</li>
+<li class="flex items-center gap-4"><span class="w-2 h-2 bg-primary rounded-full"></span> BRAND STRATEGY</li>
+</ul>
+</div>
+<div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between items-start min-h-[220px]">
+<span class="material-symbols-outlined text-5xl font-variation-settings: 'FILL' 1;">landscape</span>
+<div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest font-black mb-1 opacity-80">STATUS</h4>
+<p class="font-headline-md text-headline-md font-black tracking-tighter leading-none">OPEN FOR Q4 PROJECTS</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap-mobile text-center space-y-12">
+<h2 class="font-display-lg text-display-lg tracking-tighter leading-[0.85] font-black uppercase">LET'S START<br/>A <span class="text-primary italic">PEAK</span></h2>
+<div class="flex justify-center pt-4">
+<button class="px-10 py-6 bg-on-surface text-background rounded-full font-headline-sm uppercase tracking-widest flex items-center gap-4 hover:scale-110 transition-all duration-500 font-black">
+                    SAY HELLO <span class="material-symbols-outlined text-3xl">north_east</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t-2 border-primary/10 mt-32">
+<div class="max-w-7xl mx-auto px-margin-mobile py-24 flex flex-col items-center text-center">
+<div class="font-headline-md text-headline-md text-on-surface mb-10 tracking-tighter font-black">BHANU SINGH</div>
+<div class="grid grid-cols-2 gap-x-12 gap-y-6 mb-16">
+<a class="font-label-md text-label-md text-on-surface-muted hover:text-primary transition-all duration-300 font-black uppercase tracking-widest" href="#">GitHub</a>
+<a class="font-label-md text-label-md text-on-surface-muted hover:text-primary transition-all duration-300 font-black uppercase tracking-widest" href="#">LinkedIn</a>
+<a class="font-label-md text-label-md text-on-surface-muted hover:text-primary transition-all duration-300 font-black uppercase tracking-widest" href="#">Read.cv</a>
+<a class="font-label-md text-label-md text-on-surface-muted hover:text-primary transition-all duration-300 font-black uppercase tracking-widest" href="#">Twitter</a>
+</div>
+<p class="font-headline-sm text-[20px] tracking-widest uppercase font-black opacity-30">© 2024 CELESTIAL ARCHITECT</p>
+</div>
+</footer>
+<script>
+    // Menu Controls
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+    });
+
+    // Parallax Scroll Effect
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxBg = document.getElementById('parallax-bg');
+        if (parallaxBg) {
+            const limit = window.innerHeight * 0.85;
+            if (scrolled <= limit) {
+                const yPos = (scrolled * 0.4);
+                parallaxBg.style.transform = `translateY(${yPos}px)`;
+            }
+        }
+    });
+
+    // Snow Atmosphere Shader Implementation
+    const canvas = document.getElementById('snow-canvas');
+    const gl = canvas.getContext('webgl');
+
+    if (gl) {
+        const vertexShaderSource = `
+            attribute vec2 position;
+            varying vec2 v_texCoord;
+            void main() {
+                v_texCoord = position * 0.5 + 0.5;
+                v_texCoord.y = 1.0 - v_texCoord.y;
+                gl_Position = vec4(position, 0.0, 1.0);
+            }
+        `;
+
+        const fragmentShaderSource = `
+            precision highp float;
+            varying vec2 v_texCoord;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+
+            float noise(vec2 p) {
+                return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+            }
+
+            void main() {
+                vec2 uv = v_texCoord;
+                float drift = u_time * 0.05;
+                vec2 p = uv * 40.0;
+                p.y += drift;
+                p.x += sin(p.y * 0.1 + u_time) * 0.5;
+                
+                float n = noise(floor(p));
+                float snow = step(0.98, n) * fract(sin(dot(floor(p), vec2(1.0, 10.0))) * 10.0);
+                
+                vec3 skyColor = vec3(0.075, 0.075, 0.094); 
+                vec3 snowColor = vec3(0.8, 0.8, 0.9);
+                
+                vec3 color = skyColor;
+                color = mix(color, snowColor, snow * 0.3 * (1.0 - uv.y));
+                
+                gl_FragColor = vec4(color, 0.2);
+            }
+        `;
+
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            return shader;
+        }
+
+        const program = gl.createProgram();
+        gl.attachShader(program, createShader(gl, gl.VERTEX_SHADER, vertexShaderSource));
+        gl.attachShader(program, createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource));
+        gl.linkProgram(program);
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+
+        const positionLocation = gl.getAttribLocation(program, 'position');
+        const timeLocation = gl.getUniformLocation(program, 'u_time');
+        const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+
+        function resize() {
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        function render(time) {
+            gl.clearColor(0, 0, 0, 0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.useProgram(program);
+            gl.</script></body></html>

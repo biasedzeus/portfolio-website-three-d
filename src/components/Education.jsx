@@ -1,159 +1,57 @@
 import React from "react";
-import { Box, Typography, Stack, IconButton } from "@mui/material";
-import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-const Education = () => {
-  const Section = styled(Box)({
-    backgroundColor: "white",
-    marginTop: "1rem",
-    color: "black",
-    display: "flex",
-    width: "90%",
-    margin: "0 auto",
-    padding: "1rem",
-    borderRadius: "1.4rem",
-    marginBottom: "2rem",
-    flexDirection: "column",
-    minHeight: "435px",
-    textOverflow: "ellipsis",
-  });
+const educationData = [
+  {
+    institution: "Institute of Technology And Management, Gwalior",
+    degree: "Bachelor of Technology",
+    university: "Rajiv Gandhi Proudyogiki Vishwavidyalaya",
+    score: "CGPA 7.5",
+    year: "2021",
+  },
+  {
+    institution: "Greenfield Higher Secondary School, Gwalior",
+    degree: "Class XII (High School)",
+    university: "Madhya Pradesh Board Of Secondary Education",
+    score: "78 %",
+    year: "2016",
+  },
+  {
+    institution: "Miss Hill Higher Secondary School, Gwalior",
+    degree: "Class X (Matriculation)",
+    university: "Madhya Pradesh Board Of Secondary Education",
+    score: "82 %",
+    year: "2014",
+  },
+];
 
-  const Title = styled(Typography)({
-    textAlign: "center",
-  });
-
-  const Container = styled(Stack)({
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "3rem",
-  });
-
-  const BtnContainer = styled(Stack)({
-    // flexDirection: "column",
-    // gap: "3rem",
-    justifyContent: "flex-start",
-    marginLeft: "4rem",
-    gap: "1rem",
-  });
-  const StyledIconButton = styled(IconButton)({
-    marginTop: "1rem",
-    fontSize: "1rem",
-    backgroundColor: "#606060",
-    color: "white",
-    borderRadius: "1rem",
-    padding: ".5rem",
-    fontWeight: "700",
-
-    ":hover": {
-      backgroundColor: "blueviolet",
-      filter: "drop-shadow(0 0 1em blueviolet)",
-      color: "white",
-    },
-  });
-
+export default function Education() {
   return (
-    <Section
-      component={motion.div}
-      initial={{ opacity: 0, translateY: -100 }}
-      whileInView={{ opacity: 1, translateY: 0 }}
-      transition={{
-        duration: 0.5,
-        type: "spring",
-        stiffness: "100",
-      }}
-      viewport={{ once: false }}
-    >
-      <Title>
-        <h1 className="bluegrad">Education</h1>
-        <Box
-          sx={{
-            width: "100%",
-            typography: "body1",
-            display: "flex",
-            flexDirection: {
-              xs: "column",
-            },
-          }}
+    <div className="space-y-4">
+      {educationData.map((edu, idx) => (
+        <motion.div
+          key={edu.degree}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: idx * 0.05, ease: [0.215, 0.61, 0.355, 1] }}
+          className="border-t border-border-muted/20 py-6 flex flex-col md:flex-row justify-between items-start md:items-baseline gap-4"
         >
-          <Typography
-            fontWeight="600"
-            fontSize="1rem"
-            color="#404040"
-            variant="p"
-          >
-            Institute of Technology And Management,Gwalior -Bachelor of
-            Technology
-          </Typography>
-          <BtnContainer flexDirection="row">
-            <StyledIconButton>CGPA 7.5</StyledIconButton>
-            <StyledIconButton>2021</StyledIconButton>
-          </BtnContainer>
-
-          <Typography
-            marginLeft={"4rem"}
-            marginTop="1rem"
-            textAlign="left"
-            variant="subtitle2"
-          >
-            Rajiv Gandhi Proudyogiki Vishwavidyalaya
-          </Typography>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}></Box>
-          <Typography
-            fontWeight="600"
-            fontSize="1rem"
-            color="#404040"
-            variant="p"
-            textAlign="left"
-            marginLeft="4rem"
-            marginTop="1rem"
-          >
-            GREENFIELD HIGHER SECONDARY SCHOOL, Gwalior - XII
-          </Typography>
-          <BtnContainer flexDirection="row">
-            <StyledIconButton>78 %</StyledIconButton>
-            <StyledIconButton>2016</StyledIconButton>
-          </BtnContainer>
-
-          <Typography
-            marginLeft={"4rem"}
-            marginTop="1rem"
-            textAlign="left"
-            variant="subtitle2"
-          >
-            Madhya Pradesh Board Of Secondary Education{" "}
-          </Typography>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}></Box>
-          <Typography
-            fontWeight="600"
-            fontSize="1rem"
-            color="#404040"
-            variant="p"
-            textAlign="left"
-            marginLeft="4rem"
-            marginTop="1rem"
-          >
-            Miss Hill HIGHER SECONDARY SCHOOL,Gwalior - X
-          </Typography>
-          <BtnContainer flexDirection="row">
-            <StyledIconButton>82 %</StyledIconButton>
-            <StyledIconButton>2014</StyledIconButton>
-          </BtnContainer>
-
-          <Typography
-            marginLeft={"4rem"}
-            marginTop="1rem"
-            textAlign="left"
-            variant="subtitle2"
-          >
-            Madhya Pradesh Board Of Secondary Education
-          </Typography>
-        </Box>
-        <div className="underline"></div>
-      </Title>
-      <Container className="projects-contdainer"></Container>
-    </Section>
+          <div>
+            <h3 className="font-serif text-lg md:text-xl text-white font-extrabold uppercase tracking-tight">
+              {edu.institution}
+            </h3>
+            <p className="font-sans text-[13px] text-on-surface-variant mt-1 font-normal leading-relaxed">
+              {edu.degree} <span className="text-on-surface-muted/60">—</span> <span className="text-on-surface-muted">{edu.university}</span>
+            </p>
+          </div>
+          <div className="flex gap-4 shrink-0 font-sans text-[12px] font-semibold text-outline uppercase tracking-wider">
+            <span>{edu.score}</span>
+            <span className="text-outline/40">/</span>
+            <span>{edu.year}</span>
+          </div>
+        </motion.div>
+      ))}
+    </div>
   );
-};
-
-export default Education;
+}

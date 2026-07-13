@@ -1,135 +1,60 @@
-import messengerImg from "../assets/messenger.webp";
-import youtubemui from "../assets/youtube_mui.webp";
-import portfolio from "../assets/portfolio.webp";
-import shoppingCart from "../assets/shoppingCart.webp";
-import textFormat from "../assets/textformatanalyzer.webp";
-import newsJournal from "../assets/newsJournal.webp";
-import userlistApi from "../assets/userlistapi.webp";
+import vfxaiImg from "../assets/vfxai.png";
+import granitestackImg from "../assets/granitestack.png";
+import gethiredImg from "../assets/gethired.png";
 
 export const portfolioProjects = [
   {
-    id: "ghasdfagsd",
+    id: "vfxai",
     order: 1,
-    title: "Messenger Firebase",
-    site_URL: "https://messenger-firebase.netlify.app/login",
-    github_URL: "https://github.com/biasedzeus/messenger-react-firebase",
-    imgURL: messengerImg,
+    title: "VFX AI",
+    site_URL: "https://www.vfxai.com/",
+    github_URL: "",
+    imgURL: vfxaiImg,
     features: [
-      "Register User with an avatar.",
-      "Login a user using Firebase.",
-      "Search other resgitered users.",
-      "Chat with the selected user.",
+      "AI Video Editor and VFX OS for media creators featuring VideoGPT conversational editing.",
+      "Led a team of 6 engineers to architect and build the frontend platform and rich-text editing engine.",
+      "Developed complex, core rich-text editor components from the ground up using ProseMirror and Tiptap.",
+      "Integrated auto-caption engines, AI reframing utilities, and cross-platform publishing systems."
     ],
     description:
-      "A website which uses firebase for user registering & logining features and to chat in realtime using firestore database.",
-    techUsed: [],
-    dates: "May 2015 - December 2015",
+      "An AI-native video automation platform for media creators and enterprises, enabling chat-driven editing, automated reframing, and AI B-roll generation.",
+    techUsed: ["Next.js", "React", "TypeScript", "ProseMirror", "Tiptap", "Framer Motion", "Tailwind CSS"],
+    dates: "Jan 2025 - Present",
   },
   {
-    id: "ghasdfsxagsd",
+    id: "granitestack",
     order: 2,
-    title: "Youtube MUI",
-    site_URL: "https://youtubemui.netlify.app/",
-    github_URL: "https://github.com/biasedzeus/youtube-mui",
-    imgURL: youtubemui,
+    title: "GraniteStack",
+    site_URL: "https://www.granitestack.com/",
+    github_URL: "",
+    imgURL: granitestackImg,
     features: [
-      "Search youtube videos.",
-      "Play videos using react-player.",
-      "Sidebar with tabs.",
-      "Search modal for Mobile devices.",
+      "No-code & low-code SaaS platform builder transforming manual workflows into scalable products.",
+      "Engineered a dynamic form rendering engine converting SQL schemas into fully validated React forms.",
+      "Optimized multi-tenant state management and rendering speed using React Hooks, Redux, and RxJS.",
+      "Integrated ReactFlow node visual workspaces to map database structures and business logic."
     ],
     description:
-      "A website similar to youtube made using Material UI,where a user can search for videos and play them.",
-    techUsed: [],
-    dates: "May 2015 - December 2015",
+      "An award-winning enterprise platform builder that turns manual workflows into production-ready software systems with advanced visual workspaces and dynamic form rendering.",
+    techUsed: ["React", "TypeScript", "ReactFlow", "Redux", "RxJS", "Formik", "Yup", "AWS"],
+    dates: "Oct 2022 - Jan 2025",
   },
   {
-    id: "gbbfagsd",
+    id: "gethired",
     order: 3,
-    title: "PortFolio Website",
-    site_URL: "https://bhanusingh.netlify.app/",
-    github_URL: "https://github.com/biasedzeus/portfolio-website-three-d",
-    imgURL: portfolio,
+    title: "GetHired (In Progress)",
+    site_URL: "https://get-hired-next.vercel.app/",
+    github_URL: "",
+    imgURL: gethiredImg,
     features: [
-      "Managing UI using HTML, CSS and JavaScript.",
-      "Home Page with Three-d scene.",
-      "Projects showcase.",
-      "Resume showcase.",
-      "Blog soon to be added",
+      "AI-driven resume tailoring platform converting standard CVs into optimized applications.",
+      "Real-time PDF parsing and structure-aware editing aligned with specific job post requirements.",
+      "Conversational career editing workspace with document analyzer feedback recommendations.",
+      "Targeted for high-velocity applicants and professional career coaches."
     ],
     description:
-      "A Portfolio website that displays the portfolio of the developer ,projects and designs.Uses THREEJS and Material UI",
-    techUsed: [],
-  },
-  {
-    id: "ghasdfagsd",
-    order: 4,
-    title: "Shopping Cart",
-    site_URL: "https://shoppingcartfaker.netlify.app/",
-    github_URL: "https://github.com/biasedzeus/shoppingCart",
-    imgURL: shoppingCart,
-    features: [
-      "Add Items to the cart",
-      "Items can only be added once",
-      "CheckOut from Cart",
-      "On successfull checkout recieve a toast.",
-    ],
-    description:
-      "A simple Store and Cart component app to demonstrate to add and delete items to the cart and checkout. ",
-    techUsed: [],
-  },
-  {
-    id: "ghasdfagsd",
-    order: 5,
-    title: "User Info API",
-    site_URL: "https://fetchuserslistwithapi.netlify.app/",
-    github_URL: "https://github.com/biasedzeus/randomUserBday-Api-app",
-    imgURL: userlistApi,
-    features: [
-      "Add Items to the cart",
-      "Items can only be added once",
-      "CheckOut from Cart",
-      "On successfull checkout recieve a toast.",
-    ],
-    description:
-      "A simple user list which fetches user from an API and display to the screen.Tech used : Axios and Bootstrap .",
-    techUsed: [],
-  },
-
-  {
-    id: "ghasffdfasefgsd",
-    order: 6,
-    title: "The News Journal",
-    site_URL: "",
-    github_URL: "https://github.com/biasedzeus/news-journal",
-    imgURL: newsJournal,
-    features: [
-      " Count the the number of words",
-      " estimate the time to read the whole text.",
-      " Convert all to upperCase or LowerCase.",
-      " To remove whitespaces ",
-      "To copy the result to the clipboard ",
-    ],
-    description:
-      "A website which shows different news based on different categories made using reactstrap and news api. ",
-    techUsed: [],
-  },
-  {
-    id: "ghasffdfasefgsd",
-    order: 7,
-    title: "Text Format Analyzer",
-    site_URL: "https://textformatanalyzer.netlify.app/",
-    github_URL: "https://github.com/biasedzeus/text-formatter-analyzer",
-    imgURL: textFormat,
-    features: [
-      " Count the the number of words",
-      " estimate the time to read the whole text.",
-      " Convert all to upperCase or LowerCase.",
-      " To remove whitespaces ",
-      "To copy the result to the clipboard ",
-    ],
-    description:
-      "A website that analyzes Paragraphs, and text to return    the count of characters and words of a paragraph and the time required to read it.",
-    techUsed: [],
-  },
+      "An AI-native career preparation workspace that transforms resumes into targeted job applications using real-time document parsing and context-aware edits.",
+    techUsed: ["React", "TypeScript", "OpenAI API", "PDF.js", "Tailwind CSS", "Express"],
+    dates: "In Development",
+  }
 ];

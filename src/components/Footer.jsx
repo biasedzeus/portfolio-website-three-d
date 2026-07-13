@@ -3,39 +3,39 @@ import { motion } from "framer-motion";
 
 const SOCIAL_LINKS = [
   { name: "GitHub", href: "https://github.com/biasedzeus" },
-  { name: "LinkedIn", href: "https://linkedin.com/in/bhanu-singh-ab09a0250" },
-  { name: "Twitter", href: "#" },
+  { name: "LinkedIn", href: "https://in.linkedin.com/" },
+  { name: "AngelList", href: "https://angel.co/u/bhanu-pratap-singh-chauhan-2" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-surface-container-lowest border-t border-border-muted pt-section-gap-mobile md:pt-section-gap-desktop">
-      <div className="max-w-7xl mx-auto px-5 md:px-gutter py-12 flex flex-col items-center text-center">
+    <footer className="w-full bg-transparent border-t border-border-muted/30 mt-24 md:mt-40">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-gutter py-16 flex flex-col items-center text-center">
         {/* Giant ghost text */}
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.05 }}
+          whileInView={{ opacity: 0.03 }}
           viewport={{ once: true }}
           transition={{ duration: 1.5 }}
-          className="font-serif font-black italic select-none pointer-events-none mb-12 md:mb-16 text-on-surface leading-none uppercase"
-          style={{ fontSize: "clamp(60px, 18vw, 300px)" }}
+          className="font-serif font-black select-none pointer-events-none mb-12 md:mb-16 text-white leading-none uppercase"
+          style={{ fontSize: "clamp(48px, 12vw, 160px)" }}
         >
-          HIMALAYA
+          BHANU SINGH
         </motion.div>
 
         {/* Bottom bar */}
-        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12 border-t border-border-muted pt-12 md:pt-16">
-          <p className="font-label-md text-on-surface-muted uppercase tracking-[0.1em] text-label-md text-center md:text-left">
-            © {new Date().getFullYear()} CELESTIAL ARCHITECT — BORN IN THE MOUNTAINS
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12 border-t border-border-muted/20 pt-12">
+          <p className="font-sans text-[12px] font-medium text-outline uppercase tracking-wider text-center md:text-left">
+            © {new Date().getFullYear()} BHANU SINGH — SOFTWARE ENGINEER
           </p>
-          <div className="flex gap-8 md:gap-10">
+          <div className="flex gap-8">
             {SOCIAL_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-label-md uppercase text-on-surface-muted hover:text-primary transition-all duration-700 hover:tracking-[0.2em] text-label-md"
+                className="font-sans text-[12px] font-semibold uppercase tracking-wider text-on-surface-muted hover:text-white transition-colors duration-300"
               >
                 {link.name}
               </a>

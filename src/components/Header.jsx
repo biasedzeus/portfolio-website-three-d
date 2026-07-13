@@ -8,34 +8,37 @@ export default function Header() {
   const location = useLocation();
 
   const handleConnect = () => {
-    toast.success("Connection request initiated!", {
-      icon: "👋",
+    toast.success("Connection channel open!", {
+      icon: "⚡",
       style: {
-        background: "#1f1f24",
-        color: "#e4e1e8",
-        border: "1px solid rgba(144, 143, 161, 0.2)",
+        background: "#000000",
+        color: "#ffffff",
+        border: "1px solid rgba(255, 255, 255, 0.15)",
+        fontFamily: "Space Grotesk, sans-serif",
+        fontSize: "12px",
+        borderRadius: "0px",
       },
     });
   };
 
   const navLinks = [
-    { name: "Work", href: "#work" },
-    { name: "About", href: "#about" },
-    { name: "Experiment", href: "#experiment" },
-    { name: "Contact", href: "#contact" },
+    { name: "Work", href: "/#work" },
+    { name: "About", href: "/#about" },
+    { name: "Lab", href: "/#experiment" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
     <>
       <motion.nav
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="fixed top-8 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-[1200px] rounded-full bg-glass-surface backdrop-blur-xl border border-border-muted shadow-2xl flex justify-between items-center px-8 py-4 z-50 hover:scale-[1.01] transition-all duration-300"
+        transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
+        className="fixed top-0 left-0 w-full bg-gradient-to-b from-black/80 via-black/45 to-transparent flex justify-between items-center px-8 md:px-12 py-8 z-50 transition-all duration-300"
       >
-        <a href="#" className="font-serif text-2xl italic tracking-tighter text-on-surface">
+        <Link to="/" className="font-serif text-[15px] tracking-widest font-extrabold text-white uppercase">
           BHANU SINGH
-        </a>
+        </Link>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
@@ -43,12 +46,12 @@ export default function Header() {
             <a
               key={link.name}
               href={link.href}
-              className="font-label-md text-label-md uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors duration-300 pb-1"
+              className="font-sans text-[12px] font-semibold uppercase tracking-wider text-on-surface-variant hover:text-white transition-colors duration-300"
             >
               {link.name}
             </a>
           ))}
-          <Link to="/resume" className="font-label-md text-label-md uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors duration-300 pb-1">
+          <Link to="/resume" className="font-sans text-[12px] font-semibold uppercase tracking-wider text-on-surface-variant hover:text-white transition-colors duration-300">
             Resume
           </Link>
         </div>
@@ -56,7 +59,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <button
             onClick={handleConnect}
-            className="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-xs uppercase tracking-[0.15em] hover:brightness-110 transition-all shadow-lg shadow-primary/20"
+            className="border border-white/20 text-white px-5 py-2 rounded-none font-sans text-[11px] font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300"
           >
             Connect
           </button>
@@ -64,7 +67,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(true)}
-            className="md:hidden text-primary hover:text-white transition-colors"
+            className="md:hidden text-white hover:text-outline transition-colors"
           >
             <span className="material-symbols-outlined text-3xl">menu_open</span>
           </button>
@@ -78,11 +81,11 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-background/95 backdrop-blur-2xl z-[60] flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 bg-[#000000]/98 backdrop-blur-3xl z-[60] flex flex-col items-center justify-center gap-8"
           >
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-8 right-8 text-on-surface hover:text-primary transition-colors"
+              className="absolute top-8 right-8 text-on-surface hover:text-white transition-colors"
             >
               <span className="material-symbols-outlined text-5xl">close</span>
             </button>
@@ -94,7 +97,7 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="font-serif text-4xl italic tracking-tighter text-on-surface hover:text-primary transition-all duration-300 uppercase"
+                className="font-serif text-3xl font-extrabold tracking-tight text-white hover:text-outline transition-all duration-300 uppercase"
               >
                 {link.name}
               </motion.a>
@@ -107,7 +110,7 @@ export default function Header() {
               <Link
                 to="/resume"
                 onClick={() => setIsOpen(false)}
-                className="font-serif text-4xl italic tracking-tighter text-on-surface hover:text-primary transition-all duration-300 uppercase"
+                className="font-serif text-3xl font-extrabold tracking-tight text-white hover:text-outline transition-all duration-300 uppercase"
               >
                 Resume
               </Link>

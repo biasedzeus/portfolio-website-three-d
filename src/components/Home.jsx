@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-import HomePage from "./HomePage";
 import HeroSection from "./HeroSection";
 import LoadingSkeleton from "./LoadingSkeleton";
 
@@ -12,9 +11,8 @@ const ContactMe = lazy(() => import("./ContactMe"));
 export default function Home() {
   return (
     <>
-      {/* Hero: 3D canvas + text overlay */}
+      {/* Hero: text overlay */}
       <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <HomePage />
         {/* Gradient overlay for text readability */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/40 via-background/20 to-background pointer-events-none" />
         <HeroSection />
